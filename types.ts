@@ -1,4 +1,3 @@
-
 export enum Priority {
   A = "A",
   B = "B",
@@ -74,6 +73,21 @@ export interface NeoSapienAugment {
     category: 'Physical' | 'Mental' | 'Social' | 'Miscellaneous';
 }
 
+export interface AutomataState {
+    chassis: 'Overseer' | 'Soldier' | 'Worker' | null;
+    model: 'Basic' | 'Advanced' | 'Imperial' | null;
+    branch: string | null;
+    soldierPackage?: 'Juggernaut' | 'Dragoon' | 'Legion';
+}
+
+export interface EsperState {
+    baseArchetype: string | null;
+    mentalistArchetype: string | null;
+    path: string[];
+    mentalistPolarity: 'Receiver' | 'Influencer' | null;
+    mentalistScope: 'Focal Point' | 'Aural Field' | null;
+}
+
 export interface Character {
   name: string;
   appearance?: string;
@@ -119,4 +133,6 @@ export interface Character {
   neoSapien: {
       augments: NeoSapienAugment[];
   };
+  automata: AutomataState;
+  esper: EsperState;
 }

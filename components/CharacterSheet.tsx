@@ -1,8 +1,7 @@
-
 import React from 'react';
 // FIX: Import Skill type to resolve property access errors on 'unknown' type.
 import { Character, AttributeName, Skill } from '../types';
-import { HEALTH_BOX_TABLE, SORCERY_DATA, CHIMERA_DATA, NEO_SAPIEN_DATA } from '../constants';
+import { HEALTH_BOX_TABLE, SORCERY_DATA, CHIMERA_DATA, NEO_SAPIEN_DATA, AUTOMATA_DATA, ESPER_DATA, MENTALIST_DATA } from '../constants';
 
 interface CharacterSheetProps {
     character: Character;
@@ -34,6 +33,102 @@ const CharacterSheet: React.FC<CharacterSheetProps> = ({ character }) => {
             {Array.from({length: count}).map((_, i) => <div key={i} className="w-4 h-4 border border-slate-400 bg-slate-600"></div>)}
         </div>
     );
+
+    const renderEsperAbilities = () => {
+        const { baseArchetype, mentalistArchetype, path, mentalistPolarity, mentalistScope } = character.esper;
+        
+        const getAbilitiesForPath = () => {
+            if (!baseArchetype) return [];
+            
+            let abilities: any[] = [...ESPER_DATA[baseArchetype].abilities];
+            let currentNode = ESPER_DATA[baseArchetype];
+
+            for (const focusName of path) {
+                const nextNode = currentNode.focuses?.[focusName] || currentNode.mutations?.[focusName];
+                if (nextNode) {
+                    abilities.push(...nextNode.abilities);
+                    currentNode = nextNode;
+                }
+            }
+            return abilities;
+        };
+
+        const esperAbilities = getAbilitiesForPath();
+        const mentalistAbilities = mentalistArchetype ? MENTALIST_DATA.archetypes[mentalistArchetype].moves : [];
+
+        return (
+            <div className="mt-4">
+                <h3 className="text-xl font-bold text-cyan-400 border-t border-slate-600 pt-4 mt-4">Esper Powers</h3>
+                {baseArchetype && <p className="text-sm"><strong>Path:</strong> {baseArchetype} {path.length > 0 ? `> ${path.join(' > ')}` : ''}</p>}
+                {mentalistArchetype && <p className="text-sm"><strong>Mentalist:</strong> {mentalistArchetype} ({mentalistPolarity}, {mentalistScope})</p>}
+                
+                <div className="space-y-3 text-sm mt-2">
+                    {esperAbilities.map((ability, i) => (
+                         <div key={`esper-${i}`} className="bg-slate-900/50 p-2 rounded">
+                            <p><strong>{ability.name}</strong> <span className="text-xs text-slate-400">({ability.type})</span></p>
+                            <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
+                        </div>
+                    ))}
+                     {mentalistAbilities.map((ability, i) => (
+                         <div key={`mentalist-${i}`} className="bg-slate-900/50 p-2 rounded">
+                            <p><strong>{ability.name}</strong></p>
+                            <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+    const renderAutomataAbilities = () => {
+        const { chassis, branch, model } = character.automata;
+        if (!chassis || !branch || !model) return null;
+
+        const chassisData = AUTOMATA_DATA[chassis];
+        // FIX: Cast branches to Record<string, any> to allow indexing with a string `branch` variable.
+        // This resolves the issue where `branchData` was inferred as `never` due to complex union types.
+        const branchData = (chassisData.branches as Record<string, any>)[branch];
+        if (!branchData) return null;
+
+        let abilities: {name: string, type: string, description: string}[] = [...branchData.general];
+
+        if (model === 'Basic' || model === 'Advanced' || model === 'Imperial') {
+             abilities = [...abilities, ...branchData.models.Basic.abilities];
+        }
+        if (model === 'Advanced' || model === 'Imperial') {
+             const advancedAbilities = branchData.models.Advanced?.abilities || [];
+             abilities = [...abilities, ...advancedAbilities];
+        }
+        if (model === 'Imperial') {
+             const imperialAbilities = branchData.models.Imperial?.abilities || [];
+             abilities = [...abilities, ...imperialAbilities];
+        }
+        
+        return (
+             <div className="mt-4">
+                <h3 className="text-xl font-bold text-cyan-400 border-t border-slate-600 pt-4 mt-4">Automata Systems</h3>
+                <p className="text-sm"><strong>Chassis:</strong> {chassis} ({model})</p>
+                <p className="text-sm"><strong>Branch:</strong> {branch}</p>
+                {character.automata.soldierPackage && <p className="text-sm"><strong>Package:</strong> {character.automata.soldierPackage}</p>}
+
+                 <div className="space-y-3 text-sm mt-2">
+                    {abilities.map((ability, i) => {
+                        if (ability.type === 'Package' && chassis === 'Soldier' && model === 'Advanced' && ability.name !== character.automata.soldierPackage) {
+                            return null;
+                        }
+
+                        return (
+                            <div key={i} className="bg-slate-900/50 p-2 rounded">
+                                <p><strong>{ability.name}</strong> <span className="text-xs text-slate-400">({ability.type})</span></p>
+                                <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
+                            </div>
+                        )
+                    })}
+                 </div>
+            </div>
+        )
+
+    }
 
     return (
         <div className="bg-slate-900/50 p-6 rounded-lg text-white animate-fadeIn">
@@ -218,6 +313,9 @@ const CharacterSheet: React.FC<CharacterSheetProps> = ({ character }) => {
                             </div>
                         </div>
                     )}
+
+                    {character.lineage?.name === 'Automata' && renderAutomataAbilities()}
+                    {character.lineage?.name === 'Esper' && renderEsperAbilities()}
                 </div>
             </div>
         </div>

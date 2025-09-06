@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo } from 'react';
 // FIX: Import Skill type to resolve property access errors on 'unknown' type.
 import { Character, Category, Priority, Priorities, SkillName, Skills, AttributeName, Attributes, AttributeSpecialization, Skill, SorcerySphere, ChimeraMutation, NeoSapienAugment } from './types';
@@ -61,6 +60,18 @@ const initialCharacter: Character = {
     },
     neoSapien: {
         augments: [],
+    },
+    automata: {
+        chassis: null,
+        model: null,
+        branch: null,
+    },
+    esper: {
+        baseArchetype: null,
+        mentalistArchetype: null,
+        path: [],
+        mentalistPolarity: null,
+        mentalistScope: null,
     }
 };
 
@@ -119,6 +130,8 @@ const App: React.FC = () => {
             sorcery: initialCharacter.sorcery,
             chimera: { ...initialCharacter.chimera, mutationPoints: newMutationPoints},
             neoSapien: initialCharacter.neoSapien,
+            automata: initialCharacter.automata,
+            esper: initialCharacter.esper,
             corruption: initialCharacter.corruption,
         }));
     }, []);
@@ -180,6 +193,29 @@ const App: React.FC = () => {
 
                 return militaryCount !== limits.military || corporateCount !== limits.corporate || streetCount !== limits.street;
             }
+            if(character.lineage.name === 'Automata') {
+                const { automata } = character;
+                if (!automata.chassis || !automata.branch) return true;
+                if(automata.model === 'Advanced' && automata.chassis === 'Soldier' && !automata.soldierPackage) return true;
+            }
+            if (character.lineage.name === 'Esper') {
+                const priority = character.priorities.Lineage;
+                const { esper } = character;
+                switch (priority) {
+                    case Priority.A: // Esper Mentalist
+                        return !esper.baseArchetype || !esper.mentalistArchetype || !esper.mentalistPolarity || !esper.mentalistScope;
+                    case Priority.B: // Esper Prodigy
+                        return !esper.baseArchetype || esper.path.length !== 2;
+                    case Priority.C: // Mentalist
+                        return !esper.mentalistArchetype || !esper.mentalistPolarity || !esper.mentalistScope;
+                    case Priority.D: // Gifted Esper
+                        return !esper.baseArchetype || esper.path.length !== 1;
+                    case Priority.E: // Esper
+                        return !esper.baseArchetype;
+                    default:
+                        return true;
+                }
+            }
              return false;
         }
         if (currentStep === 4) { // Skills
@@ -199,6 +235,7 @@ const App: React.FC = () => {
 
     const handlePrev = () => {
         if (currentStep > 0) {
+            // FIX: Decrement step instead of incrementing.
             setCurrentStep(s => s - 1);
         }
     };
@@ -209,6 +246,8 @@ const App: React.FC = () => {
             sorcery: initialCharacter.sorcery, 
             chimera: initialCharacter.chimera,
             neoSapien: initialCharacter.neoSapien,
+            automata: initialCharacter.automata,
+            esper: initialCharacter.esper,
             corruption: { ...initialCharacter.corruption, permanent: 0 }
         };
         
@@ -222,6 +261,18 @@ const App: React.FC = () => {
         } else if (lineage?.name === 'Neosapien') {
             updates.neoSapien = {
                 augments: [],
+            };
+        } else if (lineage?.name === 'Automata') {
+            const lineagePriority = character.priorities.Lineage;
+            let model: 'Basic' | 'Advanced' | 'Imperial' | null = null;
+            if (lineagePriority === Priority.A) model = 'Imperial';
+            if (lineagePriority === Priority.B) model = 'Advanced';
+            if (lineagePriority === Priority.C) model = 'Basic';
+            if (lineagePriority === Priority.D) model = 'Advanced';
+            if (lineagePriority === Priority.E) model = 'Basic';
+            updates.automata = {
+                ...initialCharacter.automata,
+                model
             };
         }
         

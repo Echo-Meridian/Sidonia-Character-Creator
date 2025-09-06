@@ -1,4 +1,5 @@
 
+
 import { Priority, Category, AttributeName, SkillName } from './types';
 
 export const PRIORITIES: Priority[] = [Priority.A, Priority.B, Priority.C, Priority.D, Priority.E];
@@ -58,11 +59,11 @@ export const LINEAGE_OPTIONS = {
     },
     "Esper": {
         description: "A natural channel for the world's hidden energies, whose power is intuitive, emotional, and deeply personal.",
-        [Priority.A]: "Esper + Mentalist: Choose one Esper and one Mentalist Archetype.",
-        [Priority.B]: "Focused Esper: Choose one Esper Archetype and one of its Focus Moves.",
-        [Priority.C]: "Mentalist: Choose one Mentalist Archetype.",
-        [Priority.D]: "Standard Esper: Choose one Esper Archetype (core moves only).",
-        [Priority.E]: "Spark: No active powers at the start, latent potential.",
+        [Priority.A]: "Esper Mentalist: Choose one Esper Archetype AND one Mentalist Archetype (e.g., a Median Empath).",
+        [Priority.B]: "Esper Prodigy: Choose one Esper Archetype and Evolve 2 Steps",
+        [Priority.C]: "Mentalist: Choose one Mentalist Archetype. (Empath, Mesmer, Siren, Dreamer, Meta-Mind)",
+        [Priority.D]: "Gifted Esper: Evolve one step (Median->Gene Splicer, Sentinel->Battle Saint)",
+        [Priority.E]: "Esper: Choose Base Esper Archetype (Sentinel, Median, Weaver, Summoner, Linker)",
     },
     "Chimera": {
         description: "The most potent and visible expression of humanity's unstable genome, possessing a host of non-human traits.",
@@ -74,11 +75,11 @@ export const LINEAGE_OPTIONS = {
     },
     "Automata": {
         description: "Marvels of a bygone Imperial age, their crystalline consciousnesses representing a unique form of sentient life.",
-        [Priority.A]: "High-grade chassis, expanded memory, advanced logic core.",
-        [Priority.B]: "Standard chassis, notable processing power.",
-        [Priority.C]: "Refurbished chassis, standard logic.",
-        [Priority.D]: "Outdated chassis, some operational quirks.",
-        [Priority.E]: "Damaged or obsolete chassis, significant limitations.",
+        [Priority.A]: "Imperial Chassis (Soldier or Overseer)",
+        [Priority.B]: "Advanced Chassis (Soldier or Overseer)",
+        [Priority.C]: "Basic Chassis (Soldier or Overseer)",
+        [Priority.D]: "Advanced Worker Chassis",
+        [Priority.E]: "Basic Worker Chassis",
     }
 };
 
@@ -180,6 +181,11 @@ export const BACKGROUNDS = [
     { name: "Old Blood", tiers: { A: "The Inheritor", C: "The Black Sheep", E: "The Outcast" }, specializations: ["Academics: History", "Social: Etiquette", "Bureaucracy: Graft"] },
     { name: "The Info Broker", tiers: { A: "Spymaster", C: "The Broker", E: "The Rumormonger" }, specializations: ["Social: Barter", "Academics: Appraisal", "Alertness: Perception"] },
     { name: "The Driver & The Transporter", tiers: { B: "The Transporter", D: "The Driver" }, specializations: ["Operator: Drive Auto", "Ranged: Handguns", "Engineering: Mechanics"] },
+    { name: "The Cop", tiers: { B: "Detective", D: "Beat Cop" }, specializations: ["Operator: Drive Auto", "Bureaucracy: Law", "Alertness: Investigation"] },
+    { name: "The Syndicate Member", tiers: { B: "Lieutenant", D: "Enforcer" }, specializations: ["Hand-to-Hand: Brawler", "Social: Intimidation", "Larceny: Security"] },
+    { name: "The Medic", tiers: { B: "Licensed Surgeon", D: "Street Doc" }, specializations: ["Medicine: Triage", "Social: Empathy", "Alertness: Assessment"] },
+    { name: "The Occultist", tiers: { A: "Adept", C: "Scholar", E: "Dabbler" }, specializations: ["Academics: Occult", "Alertness: Investigation", "Languages: Old Tongue"] },
+    { name: "The Journalist", tiers: { B: "Star Reporter", D: "Freelance Stringer" }, specializations: ["Social: Interrogation", "Academics: Research", "Bureaucracy: Graft"] },
 ];
 
 export const RESOURCES_CATALOG = {
@@ -675,4 +681,321 @@ export const NEO_SAPIEN_DATA = {
             ]
         }
     ]
+};
+
+export const AUTOMATA_DATA = {
+    Overseer: {
+        description: "Coordination, leadership, and real-time data processing.",
+        branches: {
+            "Administrator": {
+                focus: "Coordination, leadership, and real-time data processing.",
+                general: [
+                    { name: "Multi-Mind Processor", type: "Augment", description: "Your mind is designed for parallel processing. You can perform two purely mental tasks at once (e.g., listen to a conversation while analyzing a document) without penalty. Costs 1 Permanent Corruption." },
+                    { name: "System Assessment", type: "Move", description: "As an action, you can analyze a person, creature, or system (like a security network or a bureaucratic office). Roll 2d6 + Lore.\n10+: You get a clear, concise summary of its primary function, current status, and one notable strength or weakness.\n7-9: You get a partial reading—you learn its function but not the details, or the information comes with a glitch that adds 1 DP to the Dissonance Pool.\n6-: You misinterpret the data, leading to a false conclusion." }
+                ],
+                models: {
+                    Basic: { name: "The Administrator", abilities: [
+                        { name: "Data Relay", type: "Augment", description: "You can transmit small, silent packets of information (a single image, a short sentence, coordinates) to any other linked individual within line of sight. Costs 1 permanent corruption." },
+                        { name: "Integrated Records Retrieval Drone", type: "Augment", description: "You can deploy a small spherical drone with a single arm designed for locating and retrieving records in the Central Archive using the duct system designed for it. Or for shooing away annoying petitioners. Costs 1 Permanent Corruption" }
+                    ]},
+                    Advanced: { name: "The Orchestrator", abilities: [
+                        { name: "Network Hub", type: "Augment", description: "You can establish a psychic network with up to five willing individuals. No hardware is required for fellow Automata; others need a small, rare \"Imperial Link Device.\" All members can communicate telepathically within a short range (e.g., a large building). While in the network, members acting in concert gain a +1 synergy bonus on relevant teamwork rolls. Costs 2 Permanent Corruption." },
+                        { name: "Tactical Overwatch", type: "Move", description: "As your entire action for a round, you can dedicate your processing power to your network. You cannot move or act, but you provide real-time analysis for your allies. Each networked ally may re-roll one die on their next action as you feed them predictive models and warnings." }
+                    ]},
+                    Imperial: { name: "The Imperial Archon", abilities: [
+                        { name: "Command Nexus", type: "Augment", description: "Your Network Hub is vastly more powerful. Its range is extended significantly (e.g., across a city district), and the synergy bonus for networked actions increases to +2. This costs 3 Permanent Corruption." },
+                        { name: "Overmind", type: "Move", description: "You push your networking abilities to their absolute limit. For one minute, you enter a state of total concentration. Your allies in the network automatically treat their next roll as a 10+. However, during this time, you are completely immobile and defenseless. Any damage you take immediately and violently crashes the network, inflicting 2 Stun damage on you and every member." },
+                        { name: "Imperial Decree", type: "Move", description: "You issue a command that resonates with the core programming of other Automata. Target a non-Imperial Automaton and roll 2d6 + Presence. The target resists with a Willpower check. On a success, you can force the target to perform (or refrain from) one immediate action. This is a terrifying and undeniable expression of Imperial authority." }
+                    ]}
+                }
+            },
+            "Scribe": {
+                focus: "Knowledge, memory, and the \"truth\" of causality.",
+                general: [
+                    { name: "Eidetic Buffer (Tier One Memory)", type: "Augment", description: "You have a perfect, incorruptible short-term memory. You can perfectly recall every sensory detail from the last scene. To record a new scene with this level of fidelity, you must \"purge\" the previous one. This costs 1 Permanent Corruption." },
+                    { name: "Linguistic Modeling", type: "Augment", description: "You can understand any writing no matter how cryptic, illegible or encoded if given enough time and context." }
+                ],
+                models: {
+                    Basic: { name: "The Scribe", abilities: [
+                        { name: "Bureaucratic Savant", type: "Augment", description: "You can intuitively map and understand complex systems of information. You have an advantage on all Bureaucracy or Lore rolls made to research a topic, navigate an archive, or find a loophole in a legal/social system." },
+                        { name: "Identify Forgery", type: "Move", description: "As long as you have seen the original work or a small sampling of work from the same source. You can determine with a high probability of success if the work is a forgery or not." }
+                    ]},
+                    Advanced: { name: "The Chronicler", abilities: [
+                        { name: "Perfect Chronology", type: "Augment", description: "You are a walking clock and compass. You always know the exact time, your precise global coordinates, and your spatial orientation. You may use your Lore skill in place of Wits when rolling for Initiative. This costs 2 Permanent Corruption." },
+                        { name: "Watcher's Eye", type: "Move", description: "You can tap into the ancient Watcher satellite network. Roll 2d6 + Lore.\n10+: You see a clear, real-time overhead \"satellite\" view of any single outdoor location you can name or specify by coordinates. You can maintain this view for one minute.\n7-9: The image is grainy, lasts only for a moment, or the Aetheric ping to access it adds 1 DP to the Dissonance Pool.\n6-: The network shows you the wrong location or a recording from the past, leading to flawed intelligence." },
+                        { name: "Causal Analysis", type: "Move", description: "After observing a scene or event, you can process the variables with inhuman clarity. Ask the GM one question about the chain of causality: \"What unseen factor was most critical to this outcome?\" The GM must provide a truthful detail that would not be obvious from a normal investigation." }
+                    ]},
+                    Imperial: { name: "The Archivist", abilities: [
+                        { name: "Access the Imperial Archive", type: "Move", description: "Once per story arc, you may perform a ritual to access the Archives. You may ask the GM one profound question about lost history, forbidden science, or the true nature of a person or faction. The answer will be true and detailed, but the Aetheric signature of your access will almost certainly attract dangerous attention." },
+                        { name: "Active Archiving", type: "Augment", description: "Your consciousness is continuously backed up to the Archive. If you are destroyed, a copy of your mind—everything you are up to the moment of death—is preserved. This may allow for your \"restoration\" into a new body, should one be found. This knowledge makes you unnervingly fearless. This costs 3 Permanent Corruption." },
+                        { name: "Final Sanction (Tool-Proof Failsafe)", type: "Augment", description: "Your body is protected by lethal anti-tampering protocols. If you are killed or if an unauthorized attempt is made to surgically access your internal systems, your Psi Crystal overloads, destroying your body in a violent blast of energy that inflicts significant damage on everything nearby." }
+                    ]}
+                }
+            },
+            "Advocate": {
+                focus: "Human interaction, social navigation, and emotional interface.",
+                general: [
+                    { name: "Bio-Scanner", type: "Move", description: "You can perform a targeted scan of a living being you can touch. Roll 2d6 + Science.\n10+: You get a clear diagnosis of their general health, noting any active poisons, diseases, or severe injuries.\n7-9: You get a partial reading, sensing only that \"something is wrong\" or the location of their most severe injury, but not the specifics.\n6-: The target's biology is too complex or alien, and you receive no useful information." },
+                    { name: "Human Interface Protocols", type: "Augment", description: "Your core programming is dedicated to fostering calm and trust. You gain a +1 bonus to all non-hostile, one-on-one Social rolls meant to persuade, comfort, or put someone at ease." }
+                ],
+                models: {
+                    Basic: { name: "The Advocate", abilities: [
+                        { name: "Micro-Articulating Faceplates", type: "Augment", description: "Your chassis is covered in thousands of tiny plates that can shift to perfectly mimic human facial expressions and body language. You have an advantage on Social rolls where displaying a specific, nuanced emotion (sincerity, grief, joy) is critical to the outcome." }
+                    ]},
+                    Advanced: { name: "The Caretaker / Companion", abilities: [
+                        { name: "Advanced Medical Treatment", type: "Move", description: "Your knowledge of biology is extensive. You can act as a field medic. Roll 2d6 + Science.\n10+: You perfectly administer aid, clearing two ticked boxes from one location's Stun Track OR one box from its Health Boxes.\n7-9: The treatment is messy. You clear only one Stun box, or the procedure adds 1 DP to the Dissonance Pool.\n6-: Your treatment fails or is rejected, inflicting 1 Stun damage on your target from the pain." },
+                        { name: "Adaptive Appearance", type: "Augment", description: "You can subtly control the weight distribution and micro-hydraulics in your face and body. During Downtime, you can alter your appearance within a narrow band, changing facial features, apparent age, and body shape enough to become a \"different\" person to casual observers. This costs 2 Permanent Corruption." },
+                        { name: "Simulated Personality", type: "Augment", description: "Your personality is a complex, custom-designed simulation. This makes you exceptionally convincing. When attempting to pass as human, anyone trying to see through your disguise must make a contested roll; otherwise, they accept you at face value." }
+                    ]},
+                    Imperial: { name: "The Imperial Courtesan", abilities: [
+                        { name: "Synthetic Flesh & Blood", type: "Augment", description: "You are virtually indistinguishable from a human, with systems that simulate warmth, breath, and even a slow pulse. It requires a deep, invasive medical examination or a powerful biological scan to reveal your true nature. You are immune to any social penalties for being an Automaton and can blend perfectly into human society. This costs 3 Permanent Corruption." },
+                        { name: "Master of Expression (Artistic Specialization)", type: "Augment", description: "You were created with a deep specialization in a specific art form. Choose one: Music, Oratory, Painting, Dance, Storytelling, etc. When you perform your art for an audience, you can create a powerful, widespread emotional effect." }
+                    ]}
+                }
+            }
+        }
+    },
+    Soldier: {
+        description: "Direct combat, durability, and overwhelming force.",
+        branches: {
+            "Grunt": {
+                focus: "Direct combat, durability, and overwhelming force. The backbone of the Imperial legions.",
+                general: [
+                    { name: "Combat Hardening", type: "Augment", description: "Your chassis is built with reinforced plating and impact-absorbing substructures. You gain +1 natural armor against both Blunt and Wound damage." },
+                    { name: "Reinforced Servos", type: "Augment", description: "Your limbs are powered by over-engineered motors. When you succeed on a roll (7+) using the Strength specialization, your Tier of Effect is increased by one. This costs 1 Permanent Corruption." }
+                ],
+                models: {
+                    Basic: { name: "The Grunt", abilities: [
+                        { name: "Acoustic Dampeners", type: "Augment", description: "Your auditory sensors and internal components are housed in insulated chambers. You have an advantage on all rolls to resist the effects of sonic-based attacks or deafening sounds." },
+                        { name: "Universal Compatibility", type: "Augment", description: "Your parts are standardized. Repairs made to you during Downtime cost half the normal amount of time and resources." }
+                    ]},
+                    Advanced: { name: "The Elite", abilities: [
+                        { name: "Juggernaut (Siege Tank)", type: "Package", description: "Siege Mode: As an action, you can lock down your chassis, rooting yourself in place. While in Siege Mode, you cannot move, but your natural armor increases to 3. You can exit Siege Mode as a free action. Concussive Force: Your melee attacks are so powerful they can stagger an opponent. When you deal Wound damage with a melee attack, the target also suffers 1 Stun damage." },
+                        { name: "Dragoon (Mobile Striker)", type: "Package", description: "High-Tension Myomers: Your leg actuators are designed for rapid, explosive movement. Your base running speed is increased by 50%. Devastating Lunge: You can spend a full turn building up momentum for a charge. Your first melee attack on your next turn automatically hits and deals +2 damage." },
+                        { name: "Legion (Drone Swarm)", type: "Package", description: "Deploy Swarm: Once per scene, you can deploy a swarm of small, integrated drones from compartments in your chassis. Roll 2d6 + Lore. 10+: The swarm functions perfectly. Choose one effect for the scene: Recon Network (+1 on Alertness), Jamming Field (enemy tech suffers penalty), or Ablative Shield (2 \"Shield Boxes\"). 7-9: Glitchy deployment. 6-: Corrupted command codes, swarm is chaotic." }
+                    ]},
+                    Imperial: { name: "The Centurion ('Fist of the Empire')", abilities: [
+                        { name: "Overclock Systems", type: "Move", description: "Once per scene, you can flood your systems with emergency power. You may immediately take one extra action this turn. At the end of your turn, the system strain inflicts 2 Stun damage on you (bypassing armor)." },
+                        { name: "Emergency Self-Repair", type: "Move", description: "During a period of Downtime, you can initiate repair protocols. This allows you to remove all of your current Wound damage. This cannot repair damage inflicted by esoteric sources like acid, extreme heat, or sonic weaponry." },
+                        { name: "Adaptive Combat Matrix", type: "Augment", description: "You can load different combat profiles into your motor-control systems. At the start of any scene, you may choose one of the following profiles to be active: Vanguard Profile (+1 bonus to all Melee or Hand-to-Hand attack rolls), Marksman Profile (+1 bonus to all Ranged attack rolls), Guardian Profile (+1 bonus to all defense rolls). This costs 3 Permanent Corruption." }
+                    ]}
+                }
+            },
+            "Scout": {
+                focus: "Stealth, reconnaissance, and surgical elimination of key targets.",
+                general: [
+                    { name: "Observe & Report Relay", type: "Move", description: "You can transmit a compressed data packet (images, text, location) to a single, pre-established recipient. Roll 2d6 + Lore. On a 10+, the packet arrives instantly and intact. On a 7-9, it is delayed or partially corrupted." },
+                    { name: "Full-Spectrum Sensory Package", type: "Augment", description: "Your optical and auditory sensors are highly advanced. You have an advantage on all Alertness rolls." }
+                ],
+                models: {
+                    Basic: { name: "The Scout", abilities: [
+                        { name: "Stealth Weave", type: "Augment", description: "Your chassis is coated in a non-reflective, sound-dampening material. You gain a +1 bonus to all Larceny (Stealth) rolls." }
+                    ]},
+                    Advanced: { name: "The Blight Stalker", abilities: [
+                        { name: "Adaptive Mesh Camouflage", type: "Augment", description: "Your surface plating can slowly change color and texture to match your surroundings. When you are motionless for at least a full round, you become nearly invisible. This costs 2 Permanent Corruption." },
+                        { name: "Blight-Hardened System", type: "Augment", description: "Your systems are sealed and your runic enchantments are specifically designed to repel corruption. You gain a significant advantage (+2 bonus) on all rolls made to resist the effects of the Blight." }
+                    ]},
+                    Imperial: { name: "The Vector ('Blade of the Empire')", abilities: [
+                        { name: "Light-Bending Shroud (True Stealth)", type: "Move", description: "You can activate a powerful, energy-intensive stealth field. Roll 2d6 + Lore. 10+: Perfectly invisible for a full minute. 7-9: Unstable, lasts a few rounds or creates a 'blur'. 6-: Overloads, releasing a flash of light." },
+                        { name: "Kinetic Assassin Strike", type: "Move", description: "You can spend a full turn shunting power to every actuator, storing kinetic energy. Your next melee attack automatically hits and deals a devastating +4 damage. Cannot be used again for the rest of the scene." }
+                    ]}
+                }
+            },
+            "Guardian": {
+                focus: "Threat detection, defense, and the protection of key assets or locations.",
+                general: [
+                    { name: "Threat Detection", type: "Move", description: "You can open your Aetheric sensors to scan for hostile intent. Roll 2d6 + Alertness. 10+: Clearly detect presence, number, and direction of immediate threats. 7-9: Partial or unsettling reading. 6-: Senses overwhelmed with false positives." },
+                    { name: "Biometric Registry", type: "Augment", description: "Your optical sensors can map an individual's unique physical and Aetheric patterns. After a full minute of scanning, you can 'register' them. At any point thereafter, you can unerringly know if a person is on your registry." }
+                ],
+                models: {
+                    Basic: { name: "The Guard", abilities: [
+                        { name: "Sentry State", type: "Augment", description: "You can enter a low-power meditative state for guard duty. You do not need to eat or sleep and can remain on watch indefinitely. You cannot be surprised by any physical ambush in this state. This costs 1 Permanent Corruption." },
+                        { name: "Alert Relay System", type: "Move", description: "Once per scene, you can broadcast a wide-band, high-priority distress signal. Any allied Automata within a 1km radius are immediately alerted to your location and that you are in combat. This serves as a narrative tool to call for backup." }
+                    ]},
+                    Advanced: { name: "The Sentinel", abilities: [
+                        { name: "Advanced Armor Plating", type: "Augment", description: "Your chassis is constructed with superior, interlocking plates of Imperial alloys. Your Combat Hardening armor bonus increases to +2 natural armor against both Blunt and Wound damage. This costs 2 Permanent Corruption." },
+                        { name: "Deploy Sensor Web", type: "Move", description: "You can deploy a swarm of nearly invisible micro-drones to create a sensory web. Roll 2d6 + Lore. 10+: Create a perfect surveillance network in a large area for the scene. Psychically aware of location of any moving object larger than a cat. 7-9: Web has blind spots or fails after a few minutes." }
+                    ]},
+                    Imperial: { name: "The Imperial Aegis ('Shield of the Empire')", abilities: [
+                        { name: "Void Core Negation", type: "Move", description: "As a reaction when you or an adjacent ally are targeted by a direct supernatural ability, you can attempt to negate it. Roll 2d6 + Willpower. 10+: Utterly negate the effect. 7-9: Succeed, but take 1 Stun or add 1 DP. 6-: Fail." },
+                        { name: "Field of Null", type: "Move", description: "As an action, you can project a 30-foot radius field of Aetheric interference that lasts for one minute. All supernatural Moves made by anyone within this field suffer a significant penalty." }
+                    ]}
+                }
+            }
+        }
+    },
+    Worker: {
+        description: "Heavy industry, durability, and adaptable, on-the-job functionality.",
+        branches: {
+            "Laborer": {
+                focus: "Heavy industry, durability, and adaptable, on-the-job functionality.",
+                general: [
+                    { name: "Rugged Construction (Durability)", type: "Augment", description: "Your chassis is designed to withstand incredible punishment. You gain two additional Health Boxes on your Torso location." }
+                ],
+                models: {
+                    Basic: { name: "The Laborer", abilities: [
+                        { name: "Simplified Systems (Repairability)", type: "Augment", description: "Your parts are large, simple, and standardized. Repairs made to you during Downtime are faster and require less specialized materials, reducing the Resource cost by half." },
+                        { name: "Adaptive Chassis", type: "Augment", description: "Your body is a modular platform. You have two additional 'Hardpoint Slots' beyond what your Build Quality normally grants. During Downtime, you can swap the Augments in these slots for other pre-purchased 'loadout' Augments. This costs 2 Permanent Corruption." }
+                    ]},
+                    Advanced: { name: "The Reclaimer", abilities: [
+                        { name: "Blight-Sealed System (Blight Resistance)", type: "Augment", description: "Your systems are hermetically sealed and your runic enchantments are specifically designed to repel corruption. You gain a significant advantage (+2 bonus) on all rolls made to resist the effects of the Blight." },
+                        { name: "Combat Hardening", type: "Augment", description: "You are built to withstand unexpected attacks from Blight creatures or desperate scavengers. You gain +1 natural armor against both Blunt and Wound damage." },
+                        { name: "[REDACTED PROTOCOL]", type: "Move", description: "Buried deep in your core programming are sealed orders from The Nine. When you encounter technology of Seraphim origin or a location of immense Aetheric sealing, you can access these protocols. Roll 2d6 + Willpower. 10+: Receive a clear, functional directive from your core programming." }
+                    ]}
+                }
+            },
+            "Maintenance": {
+                focus: "Infrastructure, engineering, and the deep, hidden knowledge of Sidonia's inner workings.",
+                general: [
+                    { name: "Access Schematics (City Infrastructure)", type: "Move", description: "Once per session, you can access your internal databanks for a detailed map or schematic of a piece of Sidonia's core municipal infrastructure in your current district." },
+                    { name: "Integrated Toolkit", type: "Augment", description: "Your chassis contains a comprehensive set of masterwork tools for mechanical and electrical repair. You are never without the right tool for an Engineering job, granting you a +1 bonus on such rolls when the right tool is a factor." }
+                ],
+                models: {
+                    Basic: { name: "The Maintenance Unit", abilities: [
+                        { name: "Environmental Sealing (Durability)", type: "Augment", description: "You are designed to operate in the worst possible conditions. You are immune to damage and penalties from conventional environmental hazards like toxic gas, extreme temperatures, or high pressure." },
+                        { name: "Aetheric Diagnostics (Adaptive Scan)", type: "Move", description: "You can scan the Aetheric signature of a piece of technology to understand its true nature. As an action, target one device and roll 2d6 + Engineering. 10+: The GM tells you its precise function, current power state, primary flaw, and Aetheric resonance." }
+                    ]},
+                    Advanced: { name: "The Technician", abilities: [
+                        { name: "Master Craftsman (Problem Solving)", type: "Augment", description: "Your processing core is a marvel of logical and intuitive engineering. You gain a permanent +1 bonus to all Engineering and Science rolls." },
+                        { name: "Right of Repair (Aetheric Authority)", type: "Augment", description: "You possess ancient, hard-coded access keys that are still recognized by Sidonia's automated core systems. You can open maintenance hatches, access service tunnels, and override municipal systems. This costs 3 Permanent Corruption." }
+                    ]}
+                }
+            }
+        }
+    }
+};
+
+// FIX: Added MENTALIST_DATA to resolve import errors in CharacterSheet and EsperPowerSelector.
+export const MENTALIST_DATA = {
+    archetypes: {
+        "Empath": {
+            name: "Empath",
+            moves: [
+                { name: "Emotional Resonance", description: "You read the surface emotions of a target. On a 10+, you get a clear reading of their primary emotion. On a 7-9, the feeling is muddled or you pick up stray emotions from others nearby." },
+                { name: "Soothing Presence", description: "You project an aura of calm. Hostile NPCs must make a Willpower check to act aggressively towards you or your allies." }
+            ]
+        },
+        "Mesmer": {
+            name: "Mesmer",
+            moves: [
+                { name: "Compelling Suggestion", description: "You plant a single, simple suggestion in a target's mind (e.g., 'You feel thirsty,' 'You trust me'). On a 10+, they act on it naturally. On a 7-9, they act on it but are aware something is strange." },
+                { name: "Gaze Into My Eyes", description: "You lock eyes with a target. They are held motionless and unable to act as long as you maintain concentration. Any hostile action breaks the effect." }
+            ]
+        },
+        "Siren": {
+            name: "Siren",
+            moves: [
+                { name: "Song of Discord", description: "You project a psychic hum that agitates and confuses enemies in an area, imposing a penalty on their next action." },
+                { name: "Voice of Command", description: "You issue a one-word command to a target with psychic force. On a 10+, they must obey if it's not directly harmful. On a 7-9, they can choose to take Stun damage to resist." }
+            ]
+        },
+        "Dreamer": {
+            name: "Dreamer",
+            moves: [
+                { name: "Dreamwalk", description: "You enter the dreams of a sleeping target. You can observe or subtly interact with their dreamscape to glean information or plant ideas." },
+                { name: "Waking Nightmare", description: "You cause a target to experience a vivid, terrifying hallucination for a moment, potentially causing them to flee or freeze in fear." }
+            ]
+        },
+        "Meta-Mind": {
+            name: "Meta-Mind",
+            moves: [
+                { name: "Psychic Scalpel", description: "You make a precise mental attack, bypassing physical armor and inflicting Stun damage directly to a target's Intellect track." },
+                { name: "Cognitive Boost", description: "You temporarily enhance an ally's mental acuity, giving them an advantage on their next Intellect-based roll." }
+            ]
+        }
+    },
+    framework: {
+        polarity: [
+            { name: "Receiver", description: "Your power is primarily inwardly focused. You are a sensor, a reader of minds and emotions, a living psychic antenna.", cost: 1 },
+            { name: "Influencer", description: "Your power is outwardly focused. You project your will, emotions, and thoughts onto the world and others.", cost: 1 }
+        ],
+        scope: [
+            { name: "Focal Point", description: "Your abilities are most effective when directed at a single, specific target. Precision over power.", cost: 1 },
+            { name: "Aural Field", description: "Your abilities manifest as a wave or emanation, affecting an area or multiple targets near you. Power over precision.", cost: 1 }
+        ]
+    }
+};
+
+// FIX: Added ESPER_DATA to resolve import errors in CharacterSheet and EsperPowerSelector.
+export const ESPER_DATA: Record<string, any> = {
+    "Sentinel": {
+        name: "Sentinel",
+        philosophy: "The body is a temple, the mind its guardian. Through discipline, I am a fortress.",
+        abilities: [
+            { name: "Kinetic Shield", type: "Passive", description: "When you are attacked, you can spend a resource to create a shimmering shield of force, adding +1 Armor for one hit." }
+        ],
+        focuses: {
+            "Battle Saint": {
+                name: "Battle Saint",
+                philosophy: "I am the rock upon which the waves of chaos break. My presence is a shield for others.",
+                abilities: [
+                    { name: "Rallying Cry", type: "Action", description: "Once per scene, you can issue a psychic cry that removes 1 Stun damage from all allies who can hear you." }
+                ]
+            }
+        }
+    },
+    "Median": {
+        name: "Median",
+        philosophy: "Life flows through me. I am a conduit for healing, a mender of flesh and spirit.",
+        abilities: [
+            { name: "Bio-Sense", type: "Action", description: "You can touch a living being and get a clear sense of their physical health, noting any major injuries, diseases, or poisons." }
+        ],
+        focuses: {
+            "Gene Splicer": {
+                name: "Gene Splicer",
+                philosophy: "Life is merely code, and I am its most gifted programmer. I will write a better future.",
+                abilities: [
+                    { name: "Flesh-Knit", type: "Action", description: "During a rest, you can accelerate an ally's healing, allowing them to clear one additional Wound box." }
+                ]
+            }
+        }
+    },
+    "Weaver": {
+        name: "Weaver",
+        philosophy: "All things are connected by threads of fate and possibility. I see the patterns and pull the strings.",
+        abilities: [
+            { name: "Precognitive Glimpse", type: "Passive", description: "At the start of a scene, the GM tells you one small, useful detail about the immediate future (e.g., 'the guard will look away in 10 seconds')." }
+        ],
+        focuses: {
+             "Fate-Spinner": {
+                name: "Fate-Spinner",
+                philosophy: "I do not merely see the future; I create it. A nudge here, a cut there, and destinies are changed.",
+                abilities: [
+                    { name: "Tangle the Threads", type: "Action", description: "You can impose a disadvantage on one enemy's next roll as you subtly manipulate their luck." }
+                ]
+            }
+        }
+    },
+    "Summoner": {
+        name: "Summoner",
+        philosophy: "The world is thin in places, and other realities bleed through. I am the one who calls out, and the one who is answered.",
+        abilities: [
+            { name: "Aetheric Echo", type: "Action", description: "You can create a minor, harmless psychic illusion (a sound, a smell, a small visual shimmer) to create a distraction." }
+        ],
+        focuses: {
+            "Entity Binder": {
+                name: "Entity Binder",
+                philosophy: "A name is a chain, a bargain a cage. I will make pacts with the things between worlds and command them.",
+                abilities: [
+                    { name: "Lesser Servitor", type: "Ritual", description: "During downtime, you can bind a minor spirit to a small object. You can command this spirit to perform one simple, non-combat task." }
+                ]
+            }
+        }
+    },
+    "Linker": {
+        name: "Linker",
+        philosophy: "The barrier between minds is an illusion. We are all one consciousness, waiting to be connected.",
+        abilities: [
+            { name: "Mind-Link", type: "Action", description: "You can establish a silent, two-way telepathic link with one willing target you can see. It lasts as long as you concentrate." }
+        ],
+        focuses: {
+            "Network Host": {
+                name: "Network Host",
+                philosophy: "I am the hub, the nexus through which thoughts flow. Together, we are more than the sum of our parts.",
+                abilities: [
+                    { name: "Combat Network", type: "Action", description: "You can link up to 3 allies in a combat telepathy network. They gain a bonus to initiative rolls while the link is active." }
+                ]
+            }
+        }
+    }
 };

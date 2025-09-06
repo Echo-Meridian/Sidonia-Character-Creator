@@ -1,10 +1,11 @@
-
 import React from 'react';
 import { Priority, Character } from '../types';
 import { LINEAGE_OPTIONS } from '../constants';
 import SorceryPowerSelector from './SorceryPowerSelector';
 import ChimeraPowerSelector from './ChimeraPowerSelector';
 import NeoSapienPowerSelector from './NeoSapienPowerSelector';
+import AutomataPowerSelector from './AutomataPowerSelector';
+import EsperPowerSelector from './EsperPowerSelector';
 
 type LineageName = keyof typeof LINEAGE_OPTIONS;
 
@@ -66,6 +67,22 @@ const LineageSelector: React.FC<LineageSelectorProps> = ({ priority, onSelect, c
         {currentLineage?.name === 'Neosapien' && (
             <div className="mt-6">
                 <NeoSapienPowerSelector
+                    character={character}
+                    onChange={onCharacterChange}
+                />
+            </div>
+        )}
+        {currentLineage?.name === 'Automata' && (
+            <div className="mt-6">
+                <AutomataPowerSelector
+                    character={character}
+                    onChange={onCharacterChange}
+                />
+            </div>
+        )}
+        {currentLineage?.name === 'Esper' && (
+            <div className="mt-6">
+                <EsperPowerSelector
                     character={character}
                     onChange={onCharacterChange}
                 />
