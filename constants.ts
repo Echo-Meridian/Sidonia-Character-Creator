@@ -1131,17 +1131,112 @@ export const ESPER_DATA: Record<string, any> = {
     },
     "Weaver": {
         name: "Weaver",
-        philosophy: "All things are connected by threads of fate and possibility. I see the patterns and pull the strings.",
+        philosophy: "The Weaver perceives the world not as solid objects, but as an intricate tapestry of energy and patterns. They are living conduits, attuned to the flow of power, the geometry of space, and the subtle rhythms of reality. They do not force their will upon the world like a Sorcerer; instead, they gently pluck at the threads of existence to create their desired effect.",
         abilities: [
-            { name: "Precognitive Glimpse", type: "Passive", description: "At the start of a scene, the GM tells you one small, useful detail about the immediate future (e.g., 'the guard will look away in 10 seconds')." }
+            {
+                name: "Sense Energy",
+                description: "You can attune your senses to perceive the flow of energy around you. This includes electrical currents in the walls, the heat signature of a living being, or the Aetheric glow of a magical effect.",
+                effect: "As an action, you can open your senses to energy. The GM will describe the significant energy sources in your immediate vicinity, allowing you to spot active electronics, hidden power conduits, or active magical wards."
+            },
+            {
+                name: "Pattern Recognition",
+                description: "Your mind is naturally inclined to see the patterns in all things, from the trajectory of a ricocheting bullet to the subtle tells in a person's speech or the flaw in a structural support.",
+                effect: "Once per scene, you can study a situation or an opponent and ask the GM for the \"pattern.\" The GM will reveal a single, exploitable pattern (e.g., \"The guard's patrol route has a consistent blind spot,\" \"This opponent always telegraphs their heavy attack with a slight dip of their left shoulder\")."
+            },
+            {
+                name: "Disrupt Energy",
+                description: "By creating a small, dissonant pulse of Aether, you can interfere with a targeted energy pattern.",
+                effect: "You can target a single, simple electronic device (an electrical switch, a radio, a light) and cause it to temporarily malfunction, or you can attempt to disrupt a sustained magical effect, causing it to flicker or weaken for a moment."
+            }
         ],
         focuses: {
-             "Fate-Spinner": {
-                name: "Fate-Spinner",
-                philosophy: "I do not merely see the future; I create it. A nudge here, a cut there, and destinies are changed.",
+            "Web Walker": {
+                name: "Web Walker",
+                philosophy: "Space is not a barrier; it is a path. The Web Walker has focused their understanding of patterns onto the physical geometry of the world. They see the lines, the angles, and the connections that others miss, allowing them to traverse their environment with impossible grace and precision. They are the ultimate parkour artists and masters of positioning.",
                 abilities: [
-                    { name: "Tangle the Threads", type: "Action", description: "You can impose a disadvantage on one enemy's next roll as you subtly manipulate their luck." }
-                ]
+                    {
+                        name: "Spatial Awareness",
+                        description: "You possess a perfect, intuitive sense of distance, dimension, and relation. Your mind is a three-dimensional map of your immediate surroundings.",
+                        effect: "(Passive): You have a perfect sense of range. You never suffer penalties for misjudging the distance for a thrown weapon, a leap, or a ranged attack. You instinctively know if a target is 10 feet away or 11."
+                    },
+                    {
+                        name: "Geometry Mastery",
+                        description: "Your understanding of angles and trajectories is supernatural. You can calculate the precise path an object will take after bouncing off one or multiple surfaces.",
+                        effect: "(Passive): This is the \"never play pool against them\" augment. You can perform impossible trick shots with thrown objects or ranged weapons, bouncing them off walls to strike targets behind cover. This functions similarly to the Gun Saint's Bounce It move, but can be applied to any projectile."
+                    },
+                    {
+                        name: "Navigate Terrain",
+                        description: "You see the \"weave\" of the environment, allowing you to move across it with uncanny efficiency.",
+                        effect: "You can use your knowledge of patterns to find the perfect path. You can move through any complex or difficult terrain (a dense forest, a rubble-strewn street, a crowded ballroom) at your full speed without penalty, flowing through the environment like water."
+                    }
+                ],
+                focuses: {}
+            },
+            "Web Spinner": {
+                name: "Web Spinner",
+                philosophy: "The world is a story, and I have read ahead. The Web Spinner sees the patterns not in space, but in time and choice. They are masters of causality, seeing the threads of probability that connect actions to outcomes. They don't predict the future so much as they understand the present so perfectly that the future becomes obvious.",
+                abilities: [
+                    {
+                        name: "Perfect Time",
+                        description: "You have a flawless internal chronometer. You know the exact time down to the microsecond, can perfectly measure elapsed time, and have an intuitive sense of rhythm and tempo.",
+                        effect: "(Passive): Your timing is impeccable. You have an advantage on all rolls where precise timing is the most critical factor (e.g., disarming a bomb, hitting a switch at the exact right moment, synchronized actions with an ally)."
+                    },
+                    {
+                        name: "Predictive Analysis",
+                        description: "You take your Pattern Recognition to the next level. You don't just see what an opponent isdoing; you see what they will do next based on their established patterns.",
+                        effect: "After observing an opponent for one round, you can make a Predictive Analysis roll. On a success, the GM will tell you the most likely action your opponent will take on their next turn."
+                    },
+                    {
+                        name: "Fleeting Glimpses",
+                        description: "Your mind is constantly brushing against the threads of the future. Occasionally, you get a flash of foresight, a brief, contextless vision of a future event.",
+                        effect: "(Narrative): At the GM's discretion, or once per session at a dramatic moment, you receive a cryptic, one-sentence vision of the future (e.g., \"The gun misfires,\" \"The floor gives way,\" \"He's lying\"). You have no control over what you see or when you see it."
+                    }
+                ],
+                focuses: {}
+            },
+            "Web Warper": {
+                name: "Web Warper",
+                philosophy: "A perfect pattern is a boring pattern. The Web Warper has embraced dissonance, finding power and beauty in the corruption of pure systems. They are agents of chaos, not through random chance, but through the deliberate introduction of disharmonious frequencies into the weave of reality.",
+                abilities: [
+                    {
+                        name: "Taste of the Fruit",
+                        description: "You have taken a bite of the proverbial apple. You now perceive the world through a lens of duality and corruption, allowing you to see the inherent flaws and potential for chaos in any person, object, or system.",
+                        effect: "Once per scene, you can look at a target (a person, a machine, a plan) and ask the GM for its \"corrupting truth.\" The GM will tell you a single, hidden flaw, secret desire, or repressed vice that can be exploited (e.g., \"The guard captain is secretly a gambling addict,\" \"This machine has a critical design flaw in its cooling system that no one knows about,\" \"The leader's 'noble' plan is secretly motivated by deep-seated jealousy\")."
+                    },
+                    {
+                        name: "Counter-Harmonies",
+                        description: "You instinctively move against the rhythm of your opponents, disrupting their flow and creating openings through sheer, calculated awkwardness.",
+                        effect: "You gain a bonus to all defensive rolls made to dodge or parry. Your movements are jerky, unpredictable, and difficult to track, making you a frustrating and slippery opponent."
+                    },
+                    {
+                        name: "Localized Distortion",
+                        description: "An evolution of Disrupt Energy. You can now create a persistent field of Aetheric static in an area.",
+                        effect: "You can target a 20-foot area. For the rest of the scene, all technology within that area becomes unreliable—lights flicker, audio becomes garbled with static, and any rolls made to operate complex machinery are at a penalty."
+                    }
+                ],
+                focuses: {}
+            },
+            "Web Eater": {
+                name: "Web Eater",
+                philosophy: "A pattern exists only to be unmade. The Web Eater has turned their perception of the world's patterns toward a single, horrifying purpose: erasure. They have become attuned to the ultimate anti-pattern, the Void. They do not just disrupt energy; they negate it, unraveling the very threads of magic and existence.",
+                abilities: [
+                    {
+                        name: "Void Sense",
+                        description: "You can sense the \"gaps\" in reality, the places where the Void touches the world.",
+                        effect: "You can automatically sense the presence of active Void magic, portals to the Void, and creatures deeply corrupted by its influence."
+                    },
+                    {
+                        name: "Pass Ward",
+                        description: "You can temporarily attune a magical ward or barrier to the frequency of the Void, causing a momentary \"hole\" in its defense that you can slip through.",
+                        effect: "You can make a roll to bypass a single magical ward or barrier. On a success, you pass through it unharmed, leaving it intact behind you."
+                    },
+                    {
+                        name: "Rune Breaker",
+                        description: "You can touch a simple runic inscription and flood it with chaotic Void energy, causing the structured magic to collapse.",
+                        effect: "You can instantly destroy any simple, non-permanent magical rune you can touch."
+                    }
+                ],
+                focuses: {}
             }
         }
     },
@@ -1163,17 +1258,85 @@ export const ESPER_DATA: Record<string, any> = {
     },
     "Linker": {
         name: "Linker",
-        philosophy: "The barrier between minds is an illusion. We are all one consciousness, waiting to be connected.",
+        philosophy: "The mind is a network. The Linker is the ultimate force multiplier, an Esper whose Aetheric Cortex functions like a biological wireless router. They do not excel in personal combat or overt power, but in their unparalleled ability to forge psychic connections between conscious minds. They are the strategists, the coordinators, and the heart of any effective team. A single Linker can turn five individuals into a single, cohesive, and terrifyingly efficient unit.",
         abilities: [
-            { name: "Mind-Link", type: "Action", description: "You can establish a silent, two-way telepathic link with one willing target you can see. It lasts as long as you concentrate." }
+            {
+                name: "Basic 5x5 Link",
+                description: "You can establish a wide-net psychic link with up to five willing individuals, including yourself. This is the foundational team-based link.",
+                effect: "For the duration of a scene, all linked members share a general awareness of each other's location and status (healthy, wounded, in danger). You, the Linker, can send simple, one-sentence commands telepathically to the entire group. All linked members gain a +1 synergy bonus when performing a coordinated action."
+            },
+            {
+                name: "Basic 2-Way Link",
+                description: "You establish a deep, private link with a single willing individual.",
+                effect: "For the duration of a scene, you and your linked partner can communicate freely and instantly, thought-to-thought. You share a clear sense of each other's emotional state and can even share fleeting sensory impressions (a brief glimpse through their eyes, the echo of a sound they heard)."
+            },
+            {
+                name: "Sense Sentience",
+                description: "Your Aether-organ is constantly scanning for the \"signal\" of other thinking minds.",
+                effect: "(Passive): You can automatically sense the presence and approximate number of sentient minds in your immediate vicinity (e.g., within the same large building), even through walls. You cannot read their thoughts, only know that they are there."
+            }
         ],
         focuses: {
-            "Network Host": {
-                name: "Network Host",
-                philosophy: "I am the hub, the nexus through which thoughts flow. Together, we are more than the sum of our parts.",
+            "The Bonder": {
+                name: "The Bonder",
+                philosophy: "Two minds, one purpose. The Bonder has forsaken the wide net in favor of perfecting the deep, intimate two-way link. Their power comes from creating a bond so profound that two individuals begin to function as a single, synergistic being.",
                 abilities: [
-                    { name: "Combat Network", type: "Action", description: "You can link up to 3 allies in a combat telepathy network. They gain a bonus to initiative rolls while the link is active." }
-                ]
+                    {
+                        name: "Establish Permanent Bond",
+                        description: "Through repeated linking and a deep emotional connection, you can forge a permanent, unbreakable two-way link with one specific individual.",
+                        effect: "You and your bonded partner are now permanently linked. You are always aware of each other's general status, no matter the distance. This permanent bond is a prerequisite for your other abilities."
+                    },
+                    {
+                        name: "Approaching Resonance",
+                        description: "The longer you are bonded, the more your Aetheric signatures begin to align. Your minds start to bleed into one another.",
+                        effect: "This is a narrative-focused move. The GM and both players should track the effects of this resonance. It might start small: you pick up your partner's verbal tics or they start humming a song only you should know. Over time, it can lead to skill-bleed (gaining a temporary bonus to a skill your partner is an expert in) or emotional transference. This is a powerful but potentially dangerous blurring of identities."
+                    }
+                ],
+                focuses: {}
+            },
+            "The Hub": {
+                name: "The Hub",
+                philosophy: "One mind, many bodies. The Hub has dedicated themself to mastering the complex art of the 5x5 link. They are the ultimate team captain, the central server through which all communication and coordination flows. Their power is measured by the flawless efficiency of the team they command.",
+                abilities: [
+                    {
+                        name: "Advanced 5x5 Link",
+                        description: "Your team-based link is now more stable and has greater bandwidth.",
+                        effect: "The coordination bonus for linked members increases to +2. Furthermore, you can now relay more complex information, including fleeting sensory data (a quick glimpse of what one member sees, the sound of a gunshot another hears) to the entire group."
+                    },
+                    {
+                        name: "Switchboard",
+                        description: "You can now function as a psychic switchboard operator, creating private, firewalled channels within your larger 5x5 link.",
+                        effect: "Within your 5x5 link, you can choose to have a private, two-way telepathic conversation with any single member, without the others being aware of the communication."
+                    },
+                    {
+                        name: "Approaching Resonance",
+                        description: "The longer your team is linked, the more their Aetheric signatures begin to align. They develop an intuitive understanding of each other's thought processes and instincts.",
+                        effect: "(Narrative): This is a narrative-focused augment. The more a team works together under the Hub's link, the more they will develop shared mannerisms, finish each other's sentences, and anticipate each other's actions without needing explicit commands. This can lead to incredible synergy but also a dangerous level of codependency."
+                    }
+                ],
+                focuses: {}
+            },
+            "The Animist": {
+                name: "The Animist",
+                philosophy: "All life is a network. The Animist attunes their mind not to the logic of humanity, but to the primal, instinctual consciousness of the animal kingdom. They are masters of non-human communication, capable of forging links with beasts, monsters, and even alien hive minds.",
+                abilities: [
+                    {
+                        name: "Primal Link",
+                        description: "You can successfully establish your Basic 5x5 Link or Basic 2-Way Link with non-human, animalistic minds.",
+                        effect: "You can form a psychic link with beasts. The nature of the link depends on the creature's intelligence; a simple beast might only convey basic emotions, while a more intelligent creature could share complex ideas."
+                    },
+                    {
+                        name: "Primal Speech",
+                        description: "You can communicate complex ideas and understand the non-verbal \"language\" of any animal you are linked with.",
+                        effect: "You can hold a two-way \"conversation\" with any beast you have a Primal Link with, understanding its needs, fears, and intentions perfectly."
+                    },
+                    {
+                        name: "Approaching Resonance",
+                        description: "Your mind begins to align with the beasts you link with. You start to think more instinctually, while they may adopt some of your more complex reasoning.",
+                        effect: "(Narrative): This represents a gradual blurring of lines between human and animal consciousness, a core theme for this path."
+                    }
+                ],
+                focuses: {}
             }
         }
     }
