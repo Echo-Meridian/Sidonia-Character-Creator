@@ -1,5 +1,3 @@
-
-
 import { Priority, Category, AttributeName, SkillName } from './types';
 
 export const PRIORITIES: Priority[] = [Priority.A, Priority.B, Priority.C, Priority.D, Priority.E];
@@ -519,7 +517,7 @@ export const NEO_SAPIEN_DATA = {
             tiers: [
                 { tier: 1, grade: "Street", name: "Gutter-Pump", description: "A crude, ticking device, scavenged from decommissioned automata or cobbled together by a back-alley \"Flesh-crafter.\" It's bolted to the ribcage, its thick, discolored tubes sutured directly into the aorta. It chugs along with a noticeable, wheezing rhythm, especially under strain.", effect: "You gain a +2 bonus to your total Health Boxes.", flaw: "The Gutter-Pump is prone to springing leaks. Whenever you take Wound damage, the pump's crude seals are stressed. You must make a Physique roll. On a failure, a seal ruptures, and you begin suffering from internal bleeding, taking 1 additional point of damage at the end of each of your turns until you can receive medical attention.", cost: 2 },
                 { tier: 2, grade: "Corporate", name: "The \"Ever-Steady\" Heart-Graft", description: "Marketed to Sidonia's elite, this is a popular longevity treatment and status symbol. A cultured valve, strengthened with micro-inscribed silver runes, is grafted onto the heart. It's less about raw power and more about effortless fortitude, ensuring one never looks embarrassingly winded after a brisk walk or a flight of stairs.", effect: "Your cardiovascular system is elegantly efficient. You gain a +2 bonus to your total Health Boxes, representing your enhanced ability to endure physical stress.", cost: 2 },
-                { tier: 3, grade: "Military", name: "State-Issue Endurance Engine", description: "This is not merely a replacement; it is a masterwork of bio-mechanical art, a product of the Red Sentinels' Forged Program. A secondary, sorcerously-attuned pump is seamlessly integrated alongside the recipient's heart, its rhythmically pulsing bioluminescent tubes visible under the skin. It regulates stamina with inhuman efficiency.", effect: "The engine manages your body's resources perfectly. When you make a roll to resist exhaustion or to perform a long-term act of physical exertion (like a forced march or a lengthy chase), your Tier of Effect is increased by one.", cost: 3 }
+                { tier: 3, grade: "Military", name: "State-Issue Endurance Engine", description: "This is not merely a replacement; it is a masterwork of bio-mechanical art, a product of the Red Sentinels' Forged Program. A secondary, sorcerously-attuned pump is seamlessly integrated alongside the recipient's heart, its rhythmically pulsing bioluminescent tubes visible under the skin. It regulates stamina with inhuman efficiency.", effect: "When you make a roll to resist exhaustion or to perform a long-term act of physical exertion (like a forced march or a lengthy chase), your Tier of Effect is increased by one.", cost: 3 }
             ]
         },
         {
@@ -870,6 +868,8 @@ export const MENTALIST_DATA = {
     archetypes: {
         "Empath": {
             name: "Empath",
+            // FIX: Add missing description to Mentalist archetypes to resolve property access error.
+            description: "Feels the emotions of others, capable of soothing or reading them.",
             moves: [
                 { name: "Emotional Resonance", description: "You read the surface emotions of a target. On a 10+, you get a clear reading of their primary emotion. On a 7-9, the feeling is muddled or you pick up stray emotions from others nearby." },
                 { name: "Soothing Presence", description: "You project an aura of calm. Hostile NPCs must make a Willpower check to act aggressively towards you or your allies." }
@@ -877,6 +877,8 @@ export const MENTALIST_DATA = {
         },
         "Mesmer": {
             name: "Mesmer",
+            // FIX: Add missing description to Mentalist archetypes to resolve property access error.
+            description: "Subtly influences minds, planting suggestions and captivating attention.",
             moves: [
                 { name: "Compelling Suggestion", description: "You plant a single, simple suggestion in a target's mind (e.g., 'You feel thirsty,' 'You trust me'). On a 10+, they act on it naturally. On a 7-9, they act on it but are aware something is strange." },
                 { name: "Gaze Into My Eyes", description: "You lock eyes with a target. They are held motionless and unable to act as long as you maintain concentration. Any hostile action breaks the effect." }
@@ -884,6 +886,8 @@ export const MENTALIST_DATA = {
         },
         "Siren": {
             name: "Siren",
+            // FIX: Add missing description to Mentalist archetypes to resolve property access error.
+            description: "Projects psychic power through voice and presence, sowing discord or compelling obedience.",
             moves: [
                 { name: "Song of Discord", description: "You project a psychic hum that agitates and confuses enemies in an area, imposing a penalty on their next action." },
                 { name: "Voice of Command", description: "You issue a one-word command to a target with psychic force. On a 10+, they must obey if it's not directly harmful. On a 7-9, they can choose to take Stun damage to resist." }
@@ -891,6 +895,8 @@ export const MENTALIST_DATA = {
         },
         "Dreamer": {
             name: "Dreamer",
+            // FIX: Add missing description to Mentalist archetypes to resolve property access error.
+            description: "Walks the paths of the subconscious, entering dreams and manifesting nightmares.",
             moves: [
                 { name: "Dreamwalk", description: "You enter the dreams of a sleeping target. You can observe or subtly interact with their dreamscape to glean information or plant ideas." },
                 { name: "Waking Nightmare", description: "You cause a target to experience a vivid, terrifying hallucination for a moment, potentially causing them to flee or freeze in fear." }
@@ -898,6 +904,8 @@ export const MENTALIST_DATA = {
         },
         "Meta-Mind": {
             name: "Meta-Mind",
+            // FIX: Add missing description to Mentalist archetypes to resolve property access error.
+            description: "A pure psionic force, attacking minds directly and boosting cognitive functions.",
             moves: [
                 { name: "Psychic Scalpel", description: "You make a precise mental attack, bypassing physical armor and inflicting Stun damage directly to a target's Intellect track." },
                 { name: "Cognitive Boost", description: "You temporarily enhance an ally's mental acuity, giving them an advantage on their next Intellect-based roll." }
@@ -916,21 +924,119 @@ export const MENTALIST_DATA = {
     }
 };
 
+// FIX: Added ESPER_PRIORITY_DATA to resolve import error in EsperPowerSelector.
+export const ESPER_PRIORITY_DATA = {
+    [Priority.A]: { base: true, mentalist: true, steps: 0 },
+    [Priority.B]: { base: true, mentalist: false, steps: 2 },
+    [Priority.C]: { base: false, mentalist: true, steps: 0 },
+    [Priority.D]: { base: true, mentalist: false, steps: 1 },
+    [Priority.E]: { base: true, mentalist: false, steps: 0 },
+};
+
 // FIX: Added ESPER_DATA to resolve import errors in CharacterSheet and EsperPowerSelector.
 export const ESPER_DATA: Record<string, any> = {
     "Sentinel": {
         name: "Sentinel",
-        philosophy: "The body is a temple, the mind its guardian. Through discipline, I am a fortress.",
+        philosophy: "The Sentinel is a living fortress, an Esper whose Aether-organ is fundamentally attuned to the realities of combat. They perceive the battlefield not as chaos, but as a flow of data to be processed and acted upon. Their power is reactive, intuitive, and focused on control and survival. This is the baseline from which all Sentinel specializations evolve.",
         abilities: [
-            { name: "Kinetic Shield", type: "Passive", description: "When you are attacked, you can spend a resource to create a shimmering shield of force, adding +1 Armor for one hit." }
+            {
+                name: "Battle Cognition",
+                description: "Your mind is a combat computer. You instinctively process tactical data, remain calm under fire, and anticipate enemy actions with an unnerving prescience. This is not a conscious thought; it is an innate state of being in a high-stress environment.",
+                effect: "You have an advantage on all Initiative rolls (roll 3d6, drop the lowest). Additionally, you are immune to the negative effects of fear from mundane sources (gunfire, intimidation) and have an advantage on rolls to resist supernatural fear."
+            },
+            {
+                name: "Aetheric Defense",
+                description: "Your Aether-organ reacts to incoming threats, hardening your bio-field an instant before impact. This is not armor; it is a flicker of reactive, localized reality warping that dulls the force of a blow.",
+                effect: "You have innate, regenerating protection. You have a pool of 3 Shield Boxes. At the start of your turn, if you have taken damage to this pool, it regenerates 1 Shield Box. Incoming damage ticks off these Shield Boxes before affecting your Health/Stun tracks. This pool does not stack with the Sorcerer's Aegis Shield Move."
+            },
+            {
+                name: "Aetheric Overclock",
+                description: "You can intentionally flood your system with raw Aether, pushing your body and powers past their normal operational limits for a brief, brilliant moment.",
+                results: {
+                    "10+": "You overclock successfully. For the next minute, you gain a +1 bonus to all rolls made using your Esper powers.",
+                    "7-9": "You succeed, but the power is unstable. You get the +1 bonus, but the violent surge of Aether costs you 1 Temporary Corruption.",
+                    "6-": "The overclock fails, and the feedback stutters your system. You cannot use any Esper powers on your next turn."
+                }
+            }
         ],
         focuses: {
+            "Juggernaut": {
+                name: "Juggernaut",
+                philosophy: "Defense through inexorable force. The Juggernaut abandons tactical finesse in favor of becoming an unstoppable, unbreakable wall of flesh and Aether. They are the anchor point of a battle, weathering blows that would fell lesser beings and delivering single, telegraphed, but utterly devastating attacks. Their power is not about speed; it's about momentum.",
+                abilities: [
+                    {
+                        name: "Tireless",
+                        description: "You activate a \"sustained performance\" protocol within your Aether-organ. Your body's need for rest and recovery is deferred, allowing you to operate at peak physical capacity long after others would have collapsed from exhaustion. You are relentless.",
+                        effect: "You do not suffer the normal penalties from exhaustion. You can continue to fight, run, or perform strenuous physical activity for hours without penalty. However, you are only deferring the cost. For every scene you use this ability, you must spend twice that amount of time in complete rest during the next Downtime before you can recover any Health or Stun damage. You can push your body to incredible limits, but the bill always comes due."
+                    },
+                    {
+                        name: "Overpower",
+                        description: "You channel all of your Aetheric energy into a single, massive, all-or-nothing blow. This is not a quick strike; it is a telegraphed, earth-shattering display of force, perfect for breaking down defenses or obliterating a stationary target.",
+                        results: {
+                            "10+": "Your attack is overwhelming. Your next melee attack this turn automatically hits and deals +3 damage.",
+                            "7-9": "The blow is powerful but uncontrolled. The attack still hits and deals the bonus damage, but the wild exertion leaves you wide open. Your opponents have an advantage on their next attack roll against you.",
+                            "6-": "You over-commit to the swing, losing your balance and staggering. You miss your attack completely and cannot take a defensive action until your next turn."
+                        }
+                    },
+                    {
+                        name: "Thick Skin",
+                        description: "Your Aetheric Defense has become proactive rather than reactive. Your bio-field is now permanently hardened, creating a tangible, armor-like barrier that is always active.",
+                        effect: "Your baseline durability is increased. You gain a permanent +1 natural armor against both Wound and Blunt damage. This stacks with the protection from your Aetheric Defense Shield Boxes, making you incredibly tough to injure."
+                    }
+                ],
+                focuses: {}
+            },
+            "Dragoon": {
+                name: "Dragoon",
+                philosophy: "Mobility. The Dragoon redefines their relationship with the battlefield, treating it not as a static grid but as a three-dimensional space to be crossed in an instant. They are masters of the sudden strike and the impossible repositioning.",
+                abilities: [
+                    {
+                        name: "Flash Step",
+                        description: "You push your Aether-organ to its limit, creating a momentary, localized warp. You don't run; you simply cease to be in one place and arrive in another.",
+                        results: {
+                            "10+": "You instantly move to any location you can see within a short distance (e.g., 50 feet). This movement does not provoke any reactionary attacks.",
+                            "7-9": "You make the jump successfully, but the biological strain is intense. You suffer 1 Stun damage, or the chaotic exit adds 1 DP to the Dissonance Pool.",
+                            "6-": "The warp is unstable. You arrive at a location near your intended target, but not precisely where you wanted, possibly leaving you in a poor tactical position."
+                        }
+                    },
+                    {
+                        name: "Pierce the Sky",
+                        description: "You channel Aether into your legs, unleashing a single, impossibly powerful leap aimed at delivering a devastating blow. This is not for travel; it is a weaponized trajectory.",
+                        results: {
+                            "10+": "Your leap is perfect. You can launch yourself from any surface and land adjacent to any target within a significant range (e.g., across a wide street, or from a rooftop down to the street). Your first melee attack upon landing automatically hits and deals +1 damage from the sheer force of the impact.",
+                            "7-9": "The landing is rough. Your attack still hits, but you suffer the \"shaken\" effect for a moment, taking a minor penalty on your next defensive roll as you recover your footing.",
+                            "6-": "You misjudge the arc. You land near your target but not in melee range, and the jarring impact means you cannot take an attack action this turn."
+                        }
+                    },
+                    {
+                        name: "Aetheric Parkour",
+                        description: "This is a passive state of grace. The Aether subtly cushions your falls, lightens your steps, and guides your hands and feet to impossible holds. Walls become temporary floors, and long falls are merely an opportunity to reposition.",
+                        effect: "You have mastered supernatural mobility. You can run up walls for short distances, slide down sheer surfaces without harm, and leap across gaps that would be impossible for a normal athlete. You ignore all movement penalties from difficult or uneven terrain. This represents your character's new, fundamental relationship with their environment."
+                    }
+                ],
+                focuses: {}
+            },
             "Battle Saint": {
                 name: "Battle Saint",
-                philosophy: "I am the rock upon which the waves of chaos break. My presence is a shield for others.",
+                philosophy: "The best defense is a relentless offense. The Battle Saint has repurposed their defensive Aetheric abilities into tools for aggression and analysis. They are not concerned with enduring the fight; they are focused on ending it. They are students of violence in all its forms.",
                 abilities: [
-                    { name: "Rallying Cry", type: "Action", description: "Once per scene, you can issue a psychic cry that removes 1 Stun damage from all allies who can hear you." }
-                ]
+                    {
+                        name: "All In",
+                        description: "You deliberately drop your reactive Aetheric defenses, shunting that power directly into your offensive capabilities for a single, decisive attack.",
+                        effect: "As part of a melee or ranged attack action, you can choose to go \"All In.\" For that single attack, you gain a +2 bonus to your roll. However, your Aetheric Defense pool is completely depleted and cannot regenerate until the start of your next turn, leaving you vulnerable."
+                    },
+                    {
+                        name: "Assess Opponent",
+                        description: "You use your Battle Cognition not just for awareness, but for analysis. By observing a target's stance, movements, and equipment, you can instantly get a read on their martial capabilities.",
+                        effect: "As an action, you can assess a single opponent. The GM will tell you their general fighting style (e.g., brawler, martial artist, marksman) and their level of proficiency (Untrained, Trained, Expert, or Master) in their primary combat skill."
+                    },
+                    {
+                        name: "Weapons Expert",
+                        description: "Your Aether-organ grants you an intuitive, baseline understanding of any weapon you pick up. You instinctively know the proper grip, balance, and basic function of any tool designed for combat.",
+                        effect: "(Passive): You are considered to have a Trained (0) skill level with every weapon, even those you have never seen before. You will never suffer an \"untrained\" penalty. Furthermore, if you decide to spend XP to increase your skill with a specific weapon, the cost to reach the Expert rank is halved."
+                    }
+                ],
+                focuses: {}
             }
         }
     },
@@ -938,15 +1044,88 @@ export const ESPER_DATA: Record<string, any> = {
         name: "Median",
         philosophy: "Life flows through me. I am a conduit for healing, a mender of flesh and spirit.",
         abilities: [
-            { name: "Bio-Sense", type: "Action", description: "You can touch a living being and get a clear sense of their physical health, noting any major injuries, diseases, or poisons." }
+            {
+                name: "Bioscan",
+                description: "You place your hand on a living being and attune your Aether-organ to its biological rhythms, allowing you to instantly diagnose its physical state.",
+                effect: "You gain precise information about the target's health. You know their exact Health and Stun boxes, can detect any diseases or poisons, and identify the presence of mutations or bioware."
+            },
+            {
+                name: "Triage",
+                description: "You channel raw Aether directly into a wounded living being, kickstarting its natural healing processes. This is battlefield medicine, quick and potent.",
+                effect: "You can mend fresh wounds. Clear two ticked boxes from one location's Stun Track OR one boxfrom its Health Boxes. This can be used on yourself or a target you touch."
+            },
+            {
+                name: "Treatment",
+                description: "You perform a more focused and sustained application of Aetheric healing to combat chronic conditions, diseases, or poisons. This takes time and concentration.",
+                effect: "Over a period of minutes or even a scene, you can effectively treat one disease or poison affecting a target. On a successful roll, you either neutralize the poison, or halt the progression of a disease, allowing natural recovery to begin."
+            }
         ],
         focuses: {
-            "Gene Splicer": {
-                name: "Gene Splicer",
-                philosophy: "Life is merely code, and I am its most gifted programmer. I will write a better future.",
+            "Gene-Splicer": {
+                name: "Gene-Splicer",
+                philosophy: "Flesh is mutable. The Gene-Splicer has moved beyond simple mending to become an architect of biological form. They understand the Aetheric \"code\" of life itself, allowing them to rewrite it.",
                 abilities: [
-                    { name: "Flesh-Knit", type: "Action", description: "During a rest, you can accelerate an ally's healing, allowing them to clear one additional Wound box." }
-                ]
+                    {
+                        name: "Gene Mapping",
+                        description: "You perform an incredibly detailed bioscan, not just of a being's current state, but of its fundamental biological blueprint.",
+                        effect: "You gain access to the target's complete genetic code, revealing predispositions, hidden flaws, or latent mutations. This also allows you to identify all their innate biological strengths and weaknesses, giving you deep insight into their physical nature."
+                    },
+                    {
+                        name: "Corrective Therapy",
+                        description: "You can manipulate a creature's genetic structure to remove flaws or integrate new biological components.",
+                        effect: "Over a period of Downtime and with appropriate materials (bioware, tissue samples), you can repair chronic conditions or remove congenital defects."
+                    },
+                    {
+                        name: "Bio-Mods (Tier 1 & 2)",
+                        description: "Your expertise allows you to understand and work with basic and corporate-grade bioware.",
+                        effect: "(Passive): You can install, maintain, and repair any Tier 1 or Tier 2 Bio-Mods on any willing or helpless subject."
+                    }
+                ],
+                focuses: {}
+            },
+            "Green Thumb": {
+                name: "Green Thumb",
+                philosophy: "The pulse of life is not limited to blood. The Green Thumb has attuned their Aetheric Cortex to the unique biological frequencies of the plant kingdom. They are gardeners, botanists, and masters of flora, able to sense the needs of plants and accelerate their growth with a touch.",
+                abilities: [
+                    {
+                        name: "Horticultural Mastery",
+                        description: "You possess an intuitive, encyclopedic knowledge of plant life. You understand soil composition, nutrient requirements, and the fundamental biology of any plant you encounter.",
+                        effect: "(Passive): You are considered to have an Expert (+1) skill rank in Science (Botany) or a similar knowledge skill. You can identify any plant, know its properties (poisonous, edible, medicinal), and understand what it needs to thrive."
+                    },
+                    {
+                        name: "Enhance Growth",
+                        description: "You channel life-giving Aether into a plant, dramatically accelerating its growth cycle.",
+                        effect: "You can touch a seed or small plant and cause it to grow to its full maturity in a matter of minutes. You could cause vines to rapidly snake up a wall to create a ladder, or cause thorny bushes to instantly erupt from the ground to form a barrier."
+                    },
+                    {
+                        name: "Treat Plants",
+                        description: "You use your healing abilities to mend damage to plants or purge them of disease and corruption.",
+                        effect: "You can touch a diseased or damaged plant and restore it to health. This can be used to neutralize blights, cure infections, or even mend physical damage to ancient, important trees."
+                    }
+                ],
+                focuses: {}
+            },
+            "Beast Doctor": {
+                name: "Beast Doctor",
+                philosophy: "Life is life, whether it walks on two legs or four. The Beast Doctor has attuned their healing abilities specifically to the non-human creatures of the world. They understand animal biology with an intuitive grace and can soothe the most savage beast with their calming presence.",
+                abilities: [
+                    {
+                        name: "Scent of the Median",
+                        description: "You passively emit a complex series of pheromones that are calming to non-human animals. They instinctively recognize you as a non-threatening, even comforting, presence.",
+                        effect: "(Passive): Animals will not willingly attack you unless you or an ally act aggressively toward them first. You have an advantage on all Social rolls made to calm, tame, or interact with animals."
+                    },
+                    {
+                        name: "Heal Chimera",
+                        description: "You have specialized your healing arts to work on the complex and often unstable biology of Chimeras and other animalistic creatures.",
+                        effect: "Your Triage and Treatment Moves are exceptionally effective when used on animals or Chimeras. When healing them, you can choose to clear one additional Stun box or automatically succeed on a Treatment roll without needing to roll the dice."
+                    },
+                    {
+                        name: "Treat Chimera",
+                        description: "An extension of the above, allowing for more complex veterinary care.",
+                        effect: "This functions identically to your Heal Chimera ability, reinforcing your role as a master of non-human biology."
+                    }
+                ],
+                focuses: {}
             }
         }
     },

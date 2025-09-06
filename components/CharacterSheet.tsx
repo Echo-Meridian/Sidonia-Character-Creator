@@ -1,7 +1,7 @@
 import React from 'react';
 // FIX: Import Skill type to resolve property access errors on 'unknown' type.
-import { Character, AttributeName, Skill } from '../types';
-import { HEALTH_BOX_TABLE, SORCERY_DATA, CHIMERA_DATA, NEO_SAPIEN_DATA, AUTOMATA_DATA, ESPER_DATA, MENTALIST_DATA } from '../constants';
+import { Character, AttributeName, Skill, EsperAbility } from '../types';
+import { HEALTH_BOX_TABLE, SORCERY_DATA, CHIMERA_DATA, NEO_SAPIEN_DATA, AUTOMATA_DATA } from '../constants';
 
 interface CharacterSheetProps {
     character: Character;
@@ -34,27 +34,23 @@ const CharacterSheet: React.FC<CharacterSheetProps> = ({ character }) => {
         </div>
     );
 
+    const renderAbility = (ability: EsperAbility, index: number) => (
+        <div key={`${ability.name}-${index}`} className="bg-slate-900/50 p-2 rounded">
+            <p><strong>{ability.name}</strong></p>
+            <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
+            {ability.effect && <p className="text-xs whitespace-pre-wrap text-slate-200 mt-1"><strong>Effect:</strong> {ability.effect}</p>}
+            {ability.results && (
+                <div className="text-xs mt-1 space-y-1">
+                    {ability.results['10+'] && <p><strong>10+:</strong> {ability.results['10+']}</p>}
+                    {ability.results['7-9'] && <p><strong>7-9:</strong> {ability.results['7-9']}</p>}
+                    {ability.results['6-'] && <p><strong>6-:</strong> {ability.results['6-']}</p>}
+                </div>
+            )}
+        </div>
+    );
+
     const renderEsperAbilities = () => {
-        const { baseArchetype, mentalistArchetype, path, mentalistPolarity, mentalistScope } = character.esper;
-        
-        const getAbilitiesForPath = () => {
-            if (!baseArchetype) return [];
-            
-            let abilities: any[] = [...ESPER_DATA[baseArchetype].abilities];
-            let currentNode = ESPER_DATA[baseArchetype];
-
-            for (const focusName of path) {
-                const nextNode = currentNode.focuses?.[focusName] || currentNode.mutations?.[focusName];
-                if (nextNode) {
-                    abilities.push(...nextNode.abilities);
-                    currentNode = nextNode;
-                }
-            }
-            return abilities;
-        };
-
-        const esperAbilities = getAbilitiesForPath();
-        const mentalistAbilities = mentalistArchetype ? MENTALIST_DATA.archetypes[mentalistArchetype].moves : [];
+        const { baseArchetype, mentalistArchetype, path, abilities, mentalistPolarity, mentalistScope } = character.esper;
 
         return (
             <div className="mt-4">
@@ -63,18 +59,7 @@ const CharacterSheet: React.FC<CharacterSheetProps> = ({ character }) => {
                 {mentalistArchetype && <p className="text-sm"><strong>Mentalist:</strong> {mentalistArchetype} ({mentalistPolarity}, {mentalistScope})</p>}
                 
                 <div className="space-y-3 text-sm mt-2">
-                    {esperAbilities.map((ability, i) => (
-                         <div key={`esper-${i}`} className="bg-slate-900/50 p-2 rounded">
-                            <p><strong>{ability.name}</strong> <span className="text-xs text-slate-400">({ability.type})</span></p>
-                            <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
-                        </div>
-                    ))}
-                     {mentalistAbilities.map((ability, i) => (
-                         <div key={`mentalist-${i}`} className="bg-slate-900/50 p-2 rounded">
-                            <p><strong>{ability.name}</strong></p>
-                            <p className="text-xs whitespace-pre-wrap text-slate-300 mt-1">{ability.description}</p>
-                        </div>
-                    ))}
+                    {abilities.map((ability, i) => renderAbility(ability, i))}
                 </div>
             </div>
         )
@@ -95,13 +80,11 @@ const CharacterSheet: React.FC<CharacterSheetProps> = ({ character }) => {
         if (model === 'Basic' || model === 'Advanced' || model === 'Imperial') {
              abilities = [...abilities, ...branchData.models.Basic.abilities];
         }
-        if (model === 'Advanced' || model === 'Imperial') {
-             const advancedAbilities = branchData.models.Advanced?.abilities || [];
-             abilities = [...abilities, ...advancedAbilities];
+        if ((model === 'Advanced' || model === 'Imperial') && branchData.models.Advanced) {
+             abilities = [...abilities, ...branchData.models.Advanced.abilities];
         }
-        if (model === 'Imperial') {
-             const imperialAbilities = branchData.models.Imperial?.abilities || [];
-             abilities = [...abilities, ...imperialAbilities];
+        if (model === 'Imperial' && branchData.models.Imperial) {
+             abilities = [...abilities, ...branchData.models.Imperial.abilities];
         }
         
         return (

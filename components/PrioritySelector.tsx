@@ -53,15 +53,25 @@ const PrioritySelector: React.FC<PrioritySelectorProps> = ({ priorities, onChang
 
   const handleSelect = (category: Category, priority: Priority) => {
     const newPriorities = { ...priorities };
+
+    // If clicking the currently selected priority for this category, deselect it.
+    if (newPriorities[category] === priority) {
+      newPriorities[category] = null;
+      onChange(newPriorities);
+      return;
+    }
     
-    const existingCategory = Object.keys(newPriorities).find(
+    // Find if another category is using the clicked priority
+    const existingCategoryForPriority = Object.keys(newPriorities).find(
       (cat) => newPriorities[cat as Category] === priority
     ) as Category | undefined;
 
-    if (existingCategory) {
-      newPriorities[existingCategory] = newPriorities[category];
+    // If another category has this priority, swap them
+    if (existingCategoryForPriority) {
+      newPriorities[existingCategoryForPriority] = newPriorities[category]; // Give it the old priority
     }
     
+    // Assign the new priority
     newPriorities[category] = priority;
     onChange(newPriorities);
   };

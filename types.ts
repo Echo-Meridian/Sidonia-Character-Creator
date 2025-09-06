@@ -45,7 +45,7 @@ export interface Skill {
 export type Skills = Record<SkillName, Skill>;
 
 export interface Contact {
-  name: string;
+  name:string;
   reach: number;
   loyalty: number;
   totalPoints: number;
@@ -80,10 +80,22 @@ export interface AutomataState {
     soldierPackage?: 'Juggernaut' | 'Dragoon' | 'Legion';
 }
 
+export interface EsperAbility {
+  name: string;
+  description: string;
+  effect?: string;
+  results?: {
+    "10+"?: string;
+    "7-9"?: string;
+    "6-"?: string;
+  };
+}
+
 export interface EsperState {
     baseArchetype: string | null;
     mentalistArchetype: string | null;
     path: string[];
+    abilities: EsperAbility[];
     mentalistPolarity: 'Receiver' | 'Influencer' | null;
     mentalistScope: 'Focal Point' | 'Aural Field' | null;
 }

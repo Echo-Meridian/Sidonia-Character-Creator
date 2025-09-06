@@ -70,6 +70,7 @@ const initialCharacter: Character = {
         baseArchetype: null,
         mentalistArchetype: null,
         path: [],
+        abilities: [],
         mentalistPolarity: null,
         mentalistScope: null,
     }
@@ -240,6 +241,11 @@ const App: React.FC = () => {
         }
     };
 
+    const handleStartOver = () => {
+        setCharacter(initialCharacter);
+        setCurrentStep(0);
+    };
+
     const handleLineageSelect = (lineage: { name: string; details: string; } | null) => {
         const updates: Partial<Character> = { 
             lineage, 
@@ -373,7 +379,7 @@ const App: React.FC = () => {
                         )}
                          {currentStep === steps.length - 1 && (
                              <button
-                                onClick={() => setCurrentStep(0)}
+                                onClick={handleStartOver}
                                 className="px-6 py-2 bg-cyan-600 text-white font-semibold rounded-md hover:bg-cyan-500 transition-colors"
                             >
                                 Start Over
