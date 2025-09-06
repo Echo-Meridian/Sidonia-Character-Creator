@@ -1242,17 +1242,120 @@ export const ESPER_DATA: Record<string, any> = {
     },
     "Summoner": {
         name: "Summoner",
-        philosophy: "The world is thin in places, and other realities bleed through. I am the one who calls out, and the one who is answered.",
+        philosophy: "The Summoner is an Esper whose Aether-organ functions as a sensitive antenna, attuned to the subtle vibrations of consciousness that permeate the world. They are a bridge, uniquely capable of perceiving and interacting with the disembodied spirits, psychic echoes, and raw Aetheric constructs that are invisible and intangible to most. They are the city's hidden census-takers, its spiritual switchboard operators. This is the baseline from which all their specialized callings evolve.",
         abilities: [
-            { name: "Aetheric Echo", type: "Action", description: "You can create a minor, harmless psychic illusion (a sound, a smell, a small visual shimmer) to create a distraction." }
+            {
+                name: "Spirit Sense",
+                description: "You can attune your senses to the Aether, allowing you to detect the presence of organized, independent consciousness nearby. This is a constant, low-level awareness, a 'sixth sense' for the supernatural.",
+                effect: "(Passive Augment): You can automatically sense the presence and general direction of any significant, free-willed supernatural entity in your immediate vicinity (e.g., within the same large building or down the street). This is most commonly used to detect the terrifying presence of a Wraith, but can also sense powerful spirits or other unique Aetheric beings. This does not allow you to see the entity or know its specific nature, only that something powerful and 'other' is nearby."
+            },
+            {
+                name: "Aetheric Echoes",
+                description: "You can focus on a specific location or object, opening your mind to the psychic residue left behind by moments of intense emotion. You are, in effect, reading the emotional 'stains' on the world.",
+                results: {
+                    "10+": "You receive a clear, though brief, sensory flash of a single, significant event that happened here (e.g., you see a ghostly image of a person being shot, you hear the echo of a panicked scream, you feel the sudden chill of profound loss).",
+                    "7-9": "The echo is fragmented or confusing. You get a single, muddled sensory input (the smell of ozone, the feeling of being watched) without the context of the full event.",
+                    "6-": "You connect to a meaningless or misleading psychic echo, learning nothing of value."
+                }
+            },
+            {
+                name: "Sprite Summoning",
+                description: "You can reach into the raw stuff of the Aether and give form and purpose to the simplest of 'spirits'—the Sprites. These are not true intelligences, but more like magical algorithms, simple programs you can command.",
+                effect: "At character creation, you define three types of Sprites you are attuned to. Each Sprite has a single, simple function it can perform. Examples include:\n▪ Messenger Sprite: Can carry a single, one-sentence message to a person you can see.\n▪ Warden Sprite: Can be set to 'watch' a location and will emit a silent, psychic ping to you if it detects movement.\n▪ Spark Sprite: Can deliver a tiny jolt of electricity, enough to activate a simple switch or create a startling spark.\nAs an action, you can summon one of your known Sprites to perform its function. The Sprite is normally invisible to others unless you take a separate action to make it manifest physically as a shimmering ball of light."
+            }
         ],
         focuses: {
-            "Entity Binder": {
-                name: "Entity Binder",
-                philosophy: "A name is a chain, a bargain a cage. I will make pacts with the things between worlds and command them.",
+            "Animata": {
+                name: "Animata",
+                philosophy: "Creation through intellect. The Animata does not borrow spirits; they build them. They are magical engineers, treating the Aether as raw code and animating force. Their servants are constructs, programmed with purpose and logic. Their journey is one of increasing complexity, from simple commands to true artificial intelligence.",
                 abilities: [
-                    { name: "Lesser Servitor", type: "Ritual", description: "During downtime, you can bind a minor spirit to a small object. You can command this spirit to perform one simple, non-combat task." }
-                ]
+                    {
+                        name: "Bond Sprite",
+                        description: "You select one of your known Sprite types and form a deep, personal bond with it, sharing a fraction of your own consciousness to enhance its capabilities.",
+                        effect: "Designate one of your Sprites as your 'Bonded Sprite.' This Sprite is now a permanent companion. It is more intelligent, can follow more complex commands, and can manifest physically without requiring a separate action. However, this bond creates a vulnerability; if your Bonded Sprite is destroyed, you suffer 1 Stun damage from the psychic feedback."
+                    },
+                    {
+                        name: "Animate the Inanimate",
+                        description: "You can temporarily imbue a simple, mundane object (a chair, a statue, a pile of rubble) with a rudimentary animating spirit of your own creation.",
+                        results: {
+                            "10+": "The object animates and will follow one simple, ongoing command for the scene (e.g., 'Guard this doorway,' 'Attack anyone who comes near me').",
+                            "7-9": "The animation is flawed. It only lasts for a few minutes, or it follows your command too literally, causing unintended complications.",
+                            "6-": "The animating force is unstable. The object shudders and moves, but not in a useful way, and then falls inert."
+                        }
+                    },
+                    {
+                        name: "Conditional Commands",
+                        description: "You have learned the basics of Aetheric 'programming.' You can now imbue your animated servants with simple IF-THEN logic.",
+                        effect: "(Passive): When you use Animate the Inanimate, you can now give your construct a conditional command (e.g., 'If someone opens that door, then attack them.' 'If I say the word 'danger,' then create a distraction.')."
+                    }
+                ],
+                focuses: {}
+            },
+            "Medium": {
+                name: "Medium",
+                philosophy: "The body is a gateway. The Medium understands that to truly interact with the Aether, one must be willing to open the door. They use their own physical and spiritual essence as a conduit, a meeting ground for forces from beyond. They are diplomats, channelers, and jailers of the intangible.",
+                abilities: [
+                    {
+                        name: "Spirit Pact",
+                        description: "You can initiate a formal, binding negotiation with a spirit, laying out terms and services to create a contract. As you've detailed, these contracts are absolute for the spirit.",
+                        effect: "This move allows you to formally propose a contract to a spirit. The negotiation itself is a roleplaying scene, likely involving contested Social or Lore rolls. If a pact is agreed upon, its terms are magically binding."
+                    },
+                    {
+                        name: "Spirit Speak",
+                        description: "Your Aether-organ acts as a universal translator for spiritual consciousness, allowing for clearer and more intuitive communication than a sorcerer could ever achieve.",
+                        effect: "You can understand and speak the 'language' of spirits. You can hold complex, nuanced conversations, perceive their true intent (though they can still lie with words), and have an advantage on all rolls made to negotiate with or understand a spiritual entity."
+                    },
+                    {
+                        name: "Channel Spirit",
+                        description: "You open your body as a temporary vessel, allowing a spirit you have a connection with to speak and perceive through you.",
+                        effect: "You can allow a spirit to inhabit your body for a scene. While channeling, the spirit can speak using your voice and see through your eyes. This is often used as a service to allow others to speak with a specific spirit. You remain in control, but the spirit's presence can be mentally taxing."
+                    }
+                ],
+                focuses: {}
+            },
+            "Automata Focus": {
+                name: "Automata Focus",
+                philosophy: "The soul requires a vessel. The Automata specialist understands that spirits crave physical form. They are arcane artisans who do not channel spirits through themselves, but instead prepare and offer inanimate objects—statues, armor, machines—as suitable hosts. They are the architects of the haunted, the makers of golems with borrowed souls.",
+                abilities: [
+                    {
+                        name: "Spirit Pact",
+                        description: "You can initiate a formal, binding negotiation with a spirit to convince it to inhabit a vessel you have prepared.",
+                        effect: "This move allows you to formally propose a contract to a spirit, offering the vessel in exchange for service. The negotiation itself is a roleplaying scene. If a pact is agreed upon, the spirit is bound to the vessel and your terms."
+                    },
+                    {
+                        name: "Prepare Vessel",
+                        description: "You perform a ritual over a non-living object, attuning its Aetheric resonance to make it more appealing and stable for a spirit to inhabit.",
+                        effect: "You can spend time during a Downtime phase to prepare an object as a potential vessel. A prepared vessel makes any Spirit Pact negotiation with a suitable spirit easier (granting a bonus to the roll) and allows the spirit to inhabit it for a longer duration."
+                    },
+                    {
+                        name: "Spirit Vessel I",
+                        description: "You have the knowledge and personal Aetheric strength to prepare vessels capable of housing common, lesser spirits.",
+                        effect: "(Passive): You can successfully create vessels for and forge pacts with spirits of a low power tier."
+                    }
+                ],
+                focuses: {}
+            },
+            "Psychomata": {
+                name: "Psychomata",
+                philosophy: "My mind is a world. The Psychomata summoner does not create or borrow, but births their servants from the raw, unfiltered stuff of their own subconscious. Their summons are living emotions, walking metaphors, and fragments of dreams made real. This is a path of introspection, creativity, and immense personal risk.",
+                abilities: [
+                    {
+                        name: "The Waking Dream",
+                        description: "When you summon your Psychomata, reality itself thins around you, taking on a surreal, dreamlike quality that reflects the nature of your summoned entity.",
+                        effect: "This is a powerful, passive thematic effect. When your Psychomata are active, the immediate environment changes. A summon born of fear might cause shadows to deepen and strange whispers to echo. A summon born of joy might cause colors to become oversaturated and the air to feel warm. This provides a narrative bonus or penalty to social interactions in the area, depending on the mood."
+                    },
+                    {
+                        name: "The Lucid Legion",
+                        description: "You open a floodgate to your subconscious, letting loose a legion of your inner beings into the world.",
+                        effect: "You can summon a number of Psychomata at once. At this stage, they are amorphous and their nature is determined by your current emotional state (as determined by the GM or player). They are not under your direct control and will act according to their core emotion (fearful summons will hide or cause panic, angry summons will attack indiscriminately, etc.)."
+                    },
+                    {
+                        name: "Conscript the Collective",
+                        description: "You can briefly exert your conscious will over your unruly subconscious creations, forcing them toward a single purpose.",
+                        effect: "As an action, you can give a single, one-word command (e.g., 'Attack,' 'Flee,' 'Protect') to all of your active Psychomata. They will obey this command for one round before reverting to their instinctual behavior."
+                    }
+                ],
+                focuses: {}
             }
         }
     },
