@@ -1,0 +1,5 @@
+{
+  "name": "Sidonia TTRPG Character Creator",
+  "description": "A character creation tool for the Sidonia tabletop role-playing game. This application guides you through the priority system, lineage selection, attribute and skill allocation, background choice, and resource management to build your character.",
+  "requestFramePermissions": []
+}
