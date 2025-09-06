@@ -1,3 +1,4 @@
+
 import { Priority, Category, AttributeName, SkillName } from './types';
 
 export const PRIORITIES: Priority[] = [Priority.A, Priority.B, Priority.C, Priority.D, Priority.E];
@@ -1450,7 +1451,50 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You can use your knowledge of patterns to find the perfect path. You can move through any complex or difficult terrain (a dense forest, a rubble-strewn street, a crowded ballroom) at your full speed without penalty, flowing through the environment like water."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Flicker": {
+                        name: "Flicker",
+                        philosophy: "Reality is a suggestion. The Flicker has taken the Web Walker's understanding of geometry and applied it to their own physical form. They don't just navigate space; they treat it as a mutable, optional construct. They are a glitch in the world, a step ahead of reality, existing where they should be, not necessarily where they are.",
+                        abilities: [
+                            {
+                                name: "Reflexive Displacement",
+                                description: "Your Aether-organ is hardwired to your survival instinct. When faced with overwhelming harm, it will instinctively fold space to move you out of the way.",
+                                effect: "(Passive): Once per scene, when an attack would kill you or inflict a maiming injury, you may choose to \"flicker.\" You instantly teleport a few feet to an adjacent safe location, causing the attack to miss completely."
+                            },
+                            {
+                                name: "Far-Sighted",
+                                description: "You can manipulate the space between your eyes and a distant object, effectively creating a \"zoom lens\" out of thin air.",
+                                effect: "You gain telescopic vision, allowing you to see with perfect clarity at extreme distances and ignoring range penalties for Perception checks."
+                            },
+                            {
+                                name: "Line-of-Sight Teleport",
+                                description: "You have learned to consciously control your flicker, allowing you to instantly traverse any space you can see.",
+                                effect: "You can instantly teleport to any location you can see within a significant range (e.g., up to 500m). This requires concentration and cannot be done as a purely reflexive action."
+                            }
+                        ]
+                    },
+                    "Overclocker": {
+                        name: "Overclocker",
+                        philosophy: "The body is a capacitor. The Overclocker has attuned their Aether-organ to the raw, crackling energy of electricity. They can absorb it, channel it, and use it to supercharge their own nervous system, turning themselves into a being of pure, twitchy reflex and latent power.",
+                        abilities: [
+                            {
+                                name: "Absorb Electricity",
+                                description: "You can safely absorb a significant amount of electrical energy into your body, storing it for later use.",
+                                effect: "When you would be damaged by a source of electricity (a faulty power conduit, a taser), you can make a roll to absorb it. On a success, you take no damage and gain a \"Charge.\""
+                            },
+                            {
+                                name: "Boost Reflexes",
+                                description: "You can spend a stored \"Charge\" to flood your nervous system with bio-electricity, granting you a short burst of incredible speed and reaction time.",
+                                effect: "By expending a Charge, you can choose to automatically win an Initiative roll, going first. Alternatively, you can expend a Charge to gain a significant bonus to a single Agility-based defense roll."
+                            },
+                            {
+                                name: "Accelerate",
+                                description: "You expend a Charge to overclock your entire system, allowing you to move with unnatural celerity.",
+                                effect: "By expending a Charge, you may take one additional Move action on your turn."
+                            }
+                        ]
+                    }
+                }
             },
             "Web Spinner": {
                 name: "Web Spinner",
@@ -1472,7 +1516,88 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Narrative): At the GM's discretion, or once per session at a dramatic moment, you receive a cryptic, one-sentence vision of the future (e.g., \"The gun misfires,\" \"The floor gives way,\" \"He's lying\"). You have no control over what you see or when you see it."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Child of Eris": {
+                        name: "Child of Eris",
+                        philosophy: "Chaos is not a pit; it is a ladder. The Child of Eris thrives in chaos and misfortune. They see the Dissonance Pool not as a threat, but as a wellspring of opportunity, a resource to be manipulated for their own gain.",
+                        abilities: [
+                            {
+                                name: "Chaos is Opportunity",
+                                description: "You can tap into the Dissonance Pool. Once per session (or per \"full\" pool, GM's discretion), you can draw upon its chaotic energy. The more DP in the pool, the greater the effect you can create (e.g., 1-3 DP might create a minor convenience like a jammed lock; 7+ DP might cause a structure to collapse or a faction to suddenly turn on another)."
+                            },
+                            {
+                                name: "Double Down",
+                                description: "You can choose to deliberately fail a roll or accept a major complication. When you do, you may add 2 DP directly to the Dissonance Pool, increasing the chaos in the world to fuel your other abilities."
+                            },
+                            {
+                                name: "Even Odds",
+                                description: "When an opponent has a clear advantage over you or an ally (e.g., from a higher position, a surprise attack, a special ability), you can activate this move to \"even the odds.\" For the next exchange, that opponent loses their advantage entirely. The situation becomes a 50/50 toss-up."
+                            }
+                        ]
+                    },
+                    "Witness": {
+                        name: "Witness",
+                        philosophy: "I am where I am meant to be. The Witness is a passive conduit for causality, guided by an unseen hand or an unconscious compulsion. They don't predict the future; they are simply delivered to the exact time and place where the future is being forged. They are the Zelig of Sidonia, fated to be present at every pivotal moment.",
+                        abilities: [
+                            {
+                                name: "Right Time and Place",
+                                description: "You are guided by an uncanny instinct, a \"gut feeling\" that tells you where you need to be.",
+                                effect: "Once per story arc, you can tell the GM you are \"following the feeling.\" The GM will then narrate how you end up in a location or situation that is, or will soon become, critically important to the current plot, even if you had no logical reason to go there."
+                            },
+                            {
+                                name: "Face in the Crowd",
+                                description: "You have a unique Aetheric \"non-presence.\" You are remarkably unremarkable, blending into any group or social setting with supernatural ease.",
+                                effect: "(Passive): Unless you deliberately draw attention to yourself, you are easily overlooked. You have an advantage on any roll made to blend in, go unnoticed in a crowd, or be forgotten by witnesses. People's memories of you are hazy and indistinct."
+                            },
+                            {
+                                name: "Astute Observations",
+                                description: "Because you are always where things happen, you have developed a supernatural eye for the small, crucial details that others miss in the heat of the moment.",
+                                effect: "After a major event has occurred in a scene you are present for (a car wreck, an assassination, a negotiation), you can make a Pattern Recognition roll to notice one critical detail that is not immediately obvious (the model of the getaway car, the expensive coat on the bureaucrat, the slight tremor in the killer's hand)."
+                            }
+                        ]
+                    },
+                    "Oracle": {
+                        name: "Oracle",
+                        philosophy: "The future whispers, but rarely speaks clearly. The Oracle is attuned to the grand, sweeping patterns of causality. They do not see precise futures, but rather receive symbolic, metaphorical glimpses of what is to come. They are interpreters of omens, readers of cosmic tarot cards, trying to make sense of a future that is always in motion.",
+                        abilities: [
+                            {
+                                name: "Metaphorical Messaging",
+                                description: "When you attempt to look into the future, you receive your visions as a series of powerful, symbolic images, like a tarot reading.",
+                                effect: "When you use your Fleeting Glimpses ability, the GM will describe the vision not as a direct event, but as a series of 2-3 symbolic images (e.g., \"A cracked porcelain mask, a wilting white rose, and a key turning in a rusted lock\"). It is up to you, the player, to interpret their meaning."
+                            },
+                            {
+                                name: "Near-Sighted",
+                                description: "Your visions are focused on events that are relatively close, temporally speaking. You see the ripples, not the distant tidal waves.",
+                                effect: "(Passive): Your visions and prophecies almost always pertain to events that will occur within the next year, and often much sooner. The magnitude of the event determines how far out you see it; a personal betrayal might appear a week in advance, while a city-shaking conspiracy might cast its shadow a year ahead of time."
+                            },
+                            {
+                                name: "Connecting Events",
+                                description: "You have learned to see the thematic threads that connect your disparate visions.",
+                                effect: "When you receive a new vision, you can ask the GM if it \"resonates\" with any previous vision you have had. If there is a causal or thematic link between the two events, the GM will confirm it, allowing you to start piecing together the larger puzzle of coming events."
+                            }
+                        ]
+                    }
+                },
+                mutations: {
+                    "Hex": {
+                        name: "Hex",
+                        philosophy: "If misfortune exists, it should be directed. The Hex has learned to gather the ambient bad luck of the world and focus it into a targeted, personal curse. They don't create chaos; they weaponize it.",
+                        abilities: [
+                            {
+                                name: "Curse Mark",
+                                description: "You bear a physical mark (a swirling tattoo, a cataract in one eye, a withered hand) that visibly darkens or grows more complex each time you place a Hex. This mark is a source of fear and superstition for those who recognize it."
+                            },
+                            {
+                                name: "Hex",
+                                description: "You can touch a target and place a Hex upon them. There is no immediate effect. However, the next time that target attempts a critical, important action, the Hex triggers. Their roll automatically fails in a complicated or disastrous way. Once the Hex is triggered, your Curse Mark recedes slightly."
+                            },
+                            {
+                                name: "Last Laugh",
+                                description: "This is your final curse. If you are killed, all the stored energy in your Curse Mark is violently discharged. The person who killed you is immediately afflicted with a powerful Hex that triggers at the worst possible moment, ensuring your grim, final victory."
+                            }
+                        ]
+                    }
+                }
             },
             "Web Warper": {
                 name: "Web Warper",
@@ -1494,7 +1619,44 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You can target a 20-foot area. For the rest of the scene, all technology within that area becomes unreliable—lights flicker, audio becomes garbled with static, and any rolls made to operate complex machinery are at a penalty."
                     }
                 ],
-                focuses: {}
+                mutations: {
+                    "Banshee": {
+                        name: "Banshee",
+                        philosophy: "Sound is the perfect weapon. The Banshee has focused their corrupting influence into their voice, turning it into an instrument capable of shattering both matter and flesh with pure, resonant frequency.",
+                        abilities: [
+                            {
+                                name: "Soundscape",
+                                description: "You have a perfect, 360-degree \"sonar\" sense, allowing you to perceive the exact location of any object or person that is making even the slightest noise."
+                            },
+                            {
+                                name: "Shatter Song",
+                                description: "You can attune your voice to the resonant frequency of a single, non-living object and unleash a focused cry. On a successful roll, the object cracks or shatters."
+                            },
+                            {
+                                name: "Death Song",
+                                description: "A terrifying and self-destructive attack. You unleash a scream tuned to the frequency of living tissue. A single target you can see must make a difficult Physique roll or take significant direct Wound damage. Using this power is agonizing, and you also suffer 1 point of Wound damage (bypassing armor) from the sympathetic vibrations."
+                            }
+                        ]
+                    },
+                    "Nightstalker": {
+                        name: "Nightstalker",
+                        philosophy: "The shadow is my home. The Nightstalker has learned to weave dissonance into light itself, creating pockets of unnatural darkness and making their own form indistinct and terrifying.",
+                        abilities: [
+                            {
+                                name: "Aetheric Stealth",
+                                description: "You can instinctively dampen your Aetheric signature, making you incredibly difficult to detect by magical or psychic means."
+                            },
+                            {
+                                name: "Cloak of Shadows",
+                                description: "As an action, you can deepen all the shadows in your immediate area, creating patches of supernatural darkness and reducing visibility for everyone."
+                            },
+                            {
+                                name: "Shadowy Defense",
+                                description: "While you are in dim light or darkness (including that created by your Cloak of Shadows), your form becomes blurred and indistinct. Any attack made against you suffers a penalty, as it is impossible to tell exactly where you are within the shadow."
+                            }
+                        ]
+                    }
+                }
             },
             "Web Eater": {
                 name: "Web Eater",
@@ -1516,7 +1678,45 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You can instantly destroy any simple, non-permanent magical rune you can touch."
                     }
                 ],
-                focuses: {}
+                focuses: {},
+                mutations: {
+                    "Mage Eater": {
+                        name: "Mage Eater",
+                        philosophy: "Magic is a flaw to be corrected. The Mage Eater has specialized in hunting those who use the Aether. They are a living counter-spell, their very presence anathema to sorcery and enchantment.",
+                        abilities: [
+                            {
+                                name: "Array Breaker",
+                                description: "An evolution of Rune Breaker. You can now unravel complex, powerful, and permanent magical arrays with a touch."
+                            },
+                            {
+                                name: "Enchantment Entropy",
+                                description: "Your connection to the Void is so strong that your mere presence destabilizes magic. Enchanted items temporarily lose their magical properties while you are holding them, and persistent magical effects (like an illusion) flicker and weaken when you are near them."
+                            },
+                            {
+                                name: "Spell Eater",
+                                description: "An evolution of the Void Sphere sorcerer's Negate. You don't just cancel a spell; you consume it, drawing its power into the Void. This move allows you to automatically negate a single spell targeted at you."
+                            }
+                        ]
+                    },
+                    "Void Born": {
+                        name: "Void Born",
+                        philosophy: "I am the encroaching emptiness. The Void Born has embraced their path so completely that they have become a living gateway to the Void. They are a paradox, a being of existence whose sole purpose is to create non-existence. They are on a finite, self-destructive clock.",
+                        abilities: [
+                            {
+                                name: "Void Defense",
+                                description: "Your body is partially phased with the Void. You gain a universal armor value (e.g., Armor 1) against ALL forms of damage—kinetic, elemental, and magical—as a portion of all incoming energy simply ceases to exist upon contact with you."
+                            },
+                            {
+                                name: "Death Sentence",
+                                description: "Your existence is a lit fuse. Every time you channel the ultimate power of the Void, a piece of your own existence is permanently erased. You have a finite number of uses of your Void Blade ability before your own soul is completely negated."
+                            },
+                            {
+                                name: "Void Blade",
+                                description: "The pinnacle of your terrifying art. As an action, you can summon a blade of pure, shimmering nothingness into your hand for a single strike. This attack automatically hits. It cannot be blocked, parried, or soaked by any armor, magical or mundane. It ignores all defenses and deals its damage directly. Each time you use this ability, you are one step closer to your own oblivion."
+                            }
+                        ]
+                    }
+                }
             }
         }
     },
@@ -1762,7 +1962,37 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "This is a narrative-focused move. The GM and both players should track the effects of this resonance. It might start small: you pick up your partner's verbal tics or they start humming a song only you should know. Over time, it can lead to skill-bleed (gaining a temporary bonus to a skill your partner is an expert in) or emotional transference. This is a powerful but potentially dangerous blurring of identities."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Companion": {
+                        name: "Companion",
+                        philosophy: "My bond is my strength. The Companion has dedicated themselves to the art of the two-way link. They seek to create a partnership so profound that the two linked individuals become more than the sum of their parts, sharing thoughts, emotions, and strengths in a seamless, synergistic union.",
+                        abilities: [
+                            { name: "Advanced Bond", description: "An evolution of the permanent bond. The connection is now deeper and more resilient.", effect: "The psychic \"bandwidth\" of your permanent bond is increased. You can now share simple sentences, brief impressions, and some sensory information (sight and sound) with your partner within 100m." },
+                            { name: "Empathic Transfer", description: "You can intentionally push or pull emotional states across your bond, steadying your partner's nerves or drawing on their courage.", effect: "As an action, you can make a roll to either absorb a negative emotional state (like fear or rage) from your partner onto yourself, or grant them a positive emotional state you are feeling (like calm or determination), giving them an advantage on their next relevant roll." },
+                            { name: "Synergistic Actions", description: "Your actions and your partner's actions are now so perfectly in sync that you move as one.", effect: "(Passive): Whenever you and your bonded partner perform a coordinated action against the same target (e.g., you both attack the same enemy, you create a distraction while they pick a lock), you both gain a significant bonus (+2) to your rolls." }
+                        ],
+                        mutations: {
+                            "Parasite": {
+                                name: "Parasite",
+                                philosophy: "I need you to survive. The bond has become a lifeline, a desperate, unhealthy dependency. The Parasite is no longer a partner but a leech, drawing emotional and physical sustenance from their host, often to the detriment of both. This is a mutation born of obsession, fear of loneliness, or a desperate need for control.",
+                                abilities: [
+                                    { name: "Parasitic Bond", description: "Your permanent bond is no longer symbiotic; it is parasitic. You are constantly drawing a low level of Aetheric energy from your host." },
+                                    { name: "Empathic Dependency", description: "You feed on your host's emotions. When your host experiences a moment of intense emotion (fear, joy, rage), you can draw on it to fuel yourself, immediately clearing 2 of your own Stun boxes. This act leaves your host feeling emotionally drained and hollow." },
+                                    { name: "Health Transfer", description: "You can use your bond as a direct conduit for life force. As an action, you can drain your host's vitality to mend your own wounds. You can transfer a number of Health boxes from your host's track to your own (up to a limit, e.g., your Presence attribute). This causes direct harm to your host and is a deeply corrupting act." }
+                                ]
+                            }
+                        }
+                    },
+                    "Passenger": {
+                        name: "Passenger",
+                        philosophy: "I am a silent observer. The Passenger has honed their linking ability for pure infiltration and espionage. They don't form deep bonds; they hitchhike on the consciousness of others, becoming a ghost in their machine, seeing and hearing everything without being detected.",
+                        abilities: [
+                            { name: "Borrow Senses", description: "You can project your consciousness into a target you can touch, becoming a passive observer within their mind.", effect: "You can see, hear, taste, and smell everything your host experiences. You have no control over their actions; you are simply along for the ride." },
+                            { name: "Stowaway", description: "You have learned to muffle your psychic presence, making it incredibly difficult for even other meta-humans to detect your mental passenger.", effect: "When you use Borrow Senses, your target is completely unaware of your presence unless they are a powerful telepath or have specific anti-intrusion defenses." },
+                            { name: "Host Hopping", description: "You can use physical contact as a bridge to leap from one consciousness to another.", effect: "While you are a passenger in a host, if they make physical contact with another person, you can make a roll to instantly transfer your consciousness from your current host to the new one." }
+                        ]
+                    }
+                }
             },
             "The Hub": {
                 name: "The Hub",
@@ -1784,7 +2014,26 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Narrative): This is a narrative-focused augment. The more a team works together under the Hub's link, the more they will develop shared mannerisms, finish each other's sentences, and anticipate each other's actions without needing explicit commands. This can lead to incredible synergy but also a dangerous level of codependency."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Coordinator": {
+                        name: "Coordinator",
+                        philosophy: "The network is everything. The Coordinator focuses on the technical perfection of the link itself. They are masters of signal strength, range, and data throughput, ensuring their team stays connected and coordinated under any circumstances. They are the Ops Chief, the master of communications.",
+                        abilities: [
+                            { name: "Long Range Link", description: "You have learned to boost the power and range of your psychic network.", effect: "(Passive): The effective range of your 5x5 link is extended from a single building to an entire city block or Ward (up to 1km)." },
+                            { name: "Hardened Link", description: "You can reinforce the Aetheric structure of your link, making it resistant to disruption from external forces.", effect: "(Passive): Your link is now protected against mundane and magical interference. It can penetrate most non-warded structures (even some reinforced Forge-Crete, though with reduced signal) and gives your linked members a bonus to resist psychic attacks that target the link itself." },
+                            { name: "Multi-Tasker", description: "Your mind can now process multiple streams of communication at once with incredible efficiency.", effect: "You can hold a simultaneous, brief, one-on-one mental conversation with every member of your link during their respective turns, relaying critical information without impeding your own ability to act. As you noted, pushing this with more complex abilities later on might come at the cost of your own physical actions." }
+                        ]
+                    },
+                    "Orchestrator": {
+                        name: "Orchestrator",
+                        philosophy: "The team is my symphony. The Orchestrator does not just manage a network; they conduct it. They process information, anticipate actions, and direct their team with such precision that every movement is part of a grander design, turning a chaotic firefight into a perfectly synchronized tactical dance.",
+                        abilities: [
+                            { name: "Multi-Tasker", description: "Your mind is capable of simultaneously processing multiple streams of complex information, allowing you to manage and direct your team with unparalleled efficiency.", effect: "(Passive): You can manage your link's communication and tactical input without penalty to your own physical actions. You can perform complex mental actions (like assessing or directing allies) and still take your full physical action." },
+                            { name: "Tactical Overview", description: "By rapidly processing the sensory input from every member of your link, you can construct a dynamic, real-time tactical map in your mind.", effect: "As an action, you can activate your Tactical Overview. You gain a perfect, birds-eye view of the entire operational area covered by your link. You see all allies and known enemies, their positions, and their line of sight." },
+                            { name: "Tactical Mastery", description: "Your Orchestrator's mind instantly identifies the optimal strategy for any given situation, seeing openings and anticipating enemy movements with impossible clarity.", effect: "(Passive): When directing your team, you always know the most tactically advantageous action for each member to take. When you issue a command that aligns with this optimal strategy, the affected ally gains a +1 bonus to their roll." }
+                        ]
+                    }
+                }
             },
             "The Animist": {
                 name: "The Animist",
@@ -1806,7 +2055,26 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Narrative): This represents a gradual blurring of lines between human and animal consciousness, a core theme for this path."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Beast Breeder": {
+                        name: "Beast Breeder",
+                        philosophy: "The pack is family. The Beast Breeder focuses on raising, managing, and understanding entire groups of animals. They are the alpha, the zookeeper, and the master of pack dynamics.",
+                        abilities: [
+                            { name: "Advanced Primal Link", description: "You can now include a large number of animals in a single Primal Link, creating a pack that functions as a single entity." },
+                            { name: "Pack Dynamics", description: "You have an intuitive understanding of how to manage a diverse group of creatures, even those that would not normally coexist, fostering a cohesive and loyal pack." },
+                            { name: "Zoology Mastery", description: "You possess an encyclopedic knowledge of animal biology, behavior, and needs." }
+                        ]
+                    },
+                    "Beast Tamer": {
+                        name: "Beast Tamer",
+                        philosophy: "Every beast has a soul. The Beast Tamer focuses on forming a deep, empathetic bond with individual creatures. They are the rehabilitators, the whisperers, the ones who can soothe the savage heart.",
+                        abilities: [
+                            { name: "Primal Empathy", description: "You can feel the precise emotional state of any animal you are linked with, allowing you to calm it, earn its trust, or understand the source of its aggression." },
+                            { name: "Primal Behaviorist", description: "You understand animal psychology so perfectly that you can predict a creature's most likely course of action in any situation." },
+                            { name: "Zoology Mastery", description: "You possess an encyclopedic knowledge of animal biology, behavior, and needs." }
+                        ]
+                    }
+                }
             }
         }
     }
