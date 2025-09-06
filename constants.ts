@@ -984,7 +984,70 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "Your baseline durability is increased. You gain a permanent +1 natural armor against both Wound and Blunt damage. This stacks with the protection from your Aetheric Defense Shield Boxes, making you incredibly tough to injure."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Shield Warden": {
+                        name: "Shield Warden",
+                        philosophy: "Protection above all. The Shield Warden has taken the Juggernaut's unbreakable nature and turned it outward. They are not just a wall; they are a sanctuary. Their existence is defined by the absolute, unwavering defense of a chosen ward. They are the ultimate bodyguard, a living shield for another.",
+                        abilities: [
+                            {
+                                name: "Extend Defense",
+                                description: "You designate a single ally as your \"ward.\" This is a deep, instinctual choice that cannot be easily changed. Your Aether-organ now perceives threats to your ward as threats to yourself, allowing you to intercede with supernatural speed and certainty.",
+                                effect: "When an adjacent ally you have designated as your ward is attacked, you can choose to have that attack target you instead. You can use your Aetheric Defense or a physical shield to block the blow as if you were the original target. You may only have one ward designated at a time. Changing your ward mid-scene requires a successful Willpower roll, representing a significant shift in your protective desire."
+                            },
+                            {
+                                name: "Full Defense",
+                                description: "You forgo all pretense of offense, planting your feet and focusing every ounce of your Aetheric and physical being into becoming an immovable, impenetrable object. You are the eye of the storm.",
+                                effect: "As your entire action for a turn, you enter a state of Full Defense. Until the start of your next turn, you double the effectiveness of your Aetheric Defense (e.g., it regenerates 2 boxes instead of 1) and your natural armor. You cannot take any offensive actions while in this state, but you are incredibly difficult to harm."
+                            },
+                            {
+                                name: "Shield Bash",
+                                description: "You have mastered the art of turning your primary defensive tool into a brutal offensive weapon. Your shield is not just a barrier; it's a battering ram.",
+                                effect: "(Passive): When wielding a physical shield, you can make a melee attack with it. A successful shield bash deals significant Stun damage and has a chance to knock your opponent off balance, giving you an advantage on your next action against them."
+                            }
+                        ]
+                    },
+                    "Brute": {
+                        name: "Brute",
+                        philosophy: "Flesh is the ultimate weapon. The Brute has eschewed complex defenses and weaponry in favor of perfecting their own body into an instrument of overwhelming physical force. They are masters of the brawl, turning their fists into hammers and their skin into steel.",
+                        abilities: [
+                            {
+                                name: "Brawler Mastery",
+                                description: "You are a master of unarmed combat. Your punches and grapples are as deadly as any weapon.",
+                                effect: "Your unarmed strikes now deal significant Stun or Wound damage (player's choice at time of attack)."
+                            },
+                            {
+                                name: "Strength Boost",
+                                description: "By shunting Aether directly into your muscles, you can achieve a temporary, incredible surge of raw power.",
+                                effect: "For one minute, your Tier of Effect for all Strength-based actions is increased by one."
+                            },
+                            {
+                                name: "Steel Skin",
+                                description: "Your skin has become unnaturally tough and resilient.",
+                                effect: "You gain a permanent +1 natural armor against Blunt damage."
+                            }
+                        ]
+                    },
+                    "Knight": {
+                        name: "Knight",
+                        philosophy: "My armor is my second skin. The Knight has embraced the ideal of the armored warrior, using their Aether to summon, modify, and master a signature suit of armor. They are a walking fortress, a perfect union of person and plate.",
+                        abilities: [
+                            {
+                                name: "Summon Armor",
+                                description: "You have a spiritual bond with one specific suit of armor.",
+                                effect: "You can summon this armor onto your body instantly, from any location."
+                            },
+                            {
+                                name: "Armor Mastery",
+                                description: "You are so attuned to your armor that you suffer none of the usual penalties for its weight or bulk.",
+                                effect: "You move as if unencumbered."
+                            },
+                            {
+                                name: "Modify Armor",
+                                description: "During Downtime, you can use your Aether to temporarily modify your armor, granting it a new, minor property for the next mission (e.g., muffled joints for stealth, sharpened gauntlets for extra damage)."
+                            }
+                        ]
+                    }
+                }
             },
             "Dragoon": {
                 name: "Dragoon",
@@ -1014,7 +1077,50 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You have mastered supernatural mobility. You can run up walls for short distances, slide down sheer surfaces without harm, and leap across gaps that would be impossible for a normal athlete. You ignore all movement penalties from difficult or uneven terrain. This represents your character's new, fundamental relationship with their environment."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Lancer": {
+                        name: "Lancer",
+                        philosophy: "The Lancer has honed the Dragoon's mobility into a single purpose: the perfect, unstoppable charge. They treat their own body as the ultimate spearhead, a living projectile meant to shatter enemy lines. This path is defined by a focus on large, two-handed melee weapons (spears, greatswords, polearms).",
+                        abilities: [
+                            {
+                                name: "Flash Strike",
+                                description: "You have mastered the offensive application of the Flash Step. Instead of re-orienting, you arrive from the warp with your weapon already in motion, giving your target no time to react.",
+                                effect: "Once per combat scene, you can perform a Flash Strike. You teleport to an enemy and make a melee attack as a single action. This attack is impossible to dodge or parry; it can only be soaked with armor."
+                            },
+                            {
+                                name: "Pierce the Sky II (Cratering Impact)",
+                                description: "An evolution of the Dragoon's signature attack. Your controlled descent is now so powerful that your landing creates a localized shockwave.",
+                                effect: "When you successfully hit a target with your Pierce the Sky Move, the impact creates a concussive blast. All other characters (friend or foe) adjacent to your target are knocked off their feet and suffer 1 Stun damage."
+                            },
+                            {
+                                name: "Open Field Advantage",
+                                description: "You are at your most dangerous when you have room to maneuver. Your combat style is predicated on charges, lunges, and wide, sweeping attacks.",
+                                effect: "(Passive): When there are no enemies within 5 feet of you at the start of your turn, your first melee attack that turn gains a +1 bonus to its roll."
+                            }
+                        ]
+                    },
+                    "Rider": {
+                        name: "Rider",
+                        philosophy: "The Rider extends their sense of mobility beyond their own body, forming a deep, supernatural bond with a mount. Whether it's a motorcycle, a hover-car, a horse, or a captured Sand Drake, the Rider and mount become a single, synergistic entity.",
+                        abilities: [
+                            {
+                                name: "Bond Mount",
+                                description: "You perform a ritual (which may be as simple as laying hands on the vehicle's chassis or looking a beast in the eye) to forge a permanent Aetheric bond with a single mount. This bond imbues the mount with a sliver of your own consciousness.",
+                                effect: "You designate one vehicle or creature as your Bonded Mount. This mount gains a rudimentary intelligence and loyalty to you. It can understand and follow your simple commands even when you are not physically present."
+                            },
+                            {
+                                name: "Summon Mount",
+                                description: "By calling out through your Aetheric bond, you can summon your mount to your location. For a vehicle, this might manifest as it driving itself to you from a nearby parking spot; for a beast, it might travel across the city to find you.",
+                                effect: "Once per day, you can summon your Bonded Mount. It will arrive at your location as quickly as it can reasonably travel. If it is a vehicle and is blocked (e.g., in a locked garage), it cannot reach you."
+                            },
+                            {
+                                name: "Mounted Mastery",
+                                description: "Your bond grants you an intuitive, supernatural understanding of how to operate your mount. This is not learned knowledge; it is pure instinct.",
+                                effect: "(Passive): You are a perfect rider. When you are on or in your Bonded Mount, you can perform any piloting or riding maneuver as if you were a master. This means you can drive a car, fly a hovercraft, or ride a beast with expert proficiency, even if you have never done so before. You gain an advantage on all rolls made to pilot or control your mount."
+                            }
+                        ]
+                    }
+                }
             },
             "Battle Saint": {
                 name: "Battle Saint",
@@ -1036,7 +1142,71 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Passive): You are considered to have a Trained (0) skill level with every weapon, even those you have never seen before. You will never suffer an \"untrained\" penalty. Furthermore, if you decide to spend XP to increase your skill with a specific weapon, the cost to reach the Expert rank is halved."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Weapon Saint": {
+                        name: "Weapon Saint",
+                        philosophy: "This is not a generalist path; it is the path of the ultimate specialist. The Weapon Saint has chosen to pour their entire martial identity into a single, signature weapon, becoming so attuned to it that the weapon is no longer a tool but an extension of their soul.",
+                        abilities: [
+                            {
+                                name: "Attune Weapon",
+                                description: "You perform a lengthy ritual during Downtime, forming a deep, Aetheric bond with one specific weapon of your choice. This weapon becomes your signature, your Excalibur.",
+                                effect: "You designate a single weapon as your Attuned Weapon. You can only have one at a time. This attunement is a prerequisite for your other abilities."
+                            },
+                            {
+                                name: "Master Weapon",
+                                description: "Through your attunement, your skill with your chosen weapon has reached a level of supernatural mastery that transcends mere training.",
+                                effect: "(Passive): When using your Attuned Weapon, you are always considered to have a Master (+2) skill rank, regardless of your actual trained skill level. This bonus does not apply to any other weapon."
+                            },
+                            {
+                                name: "Imbue Weapon",
+                                description: "You can channel your Aetheric power through your attuned weapon, unleashing a single, spectacular signature move. This effect should be personal and defined by the player in collaboration with the GM when they first attune the weapon.",
+                                effect: "Once per combat scene, you can activate your weapon's unique imbued power. Examples include:\n▪ Earth-Shaker (Hammer): Your next attack creates a concussive blast, knocking down all adjacent enemies.\n▪ Blade of Fire (Sword): Your blade ignites, dealing bonus fire damage for the next minute.\n▪ Ricochet Shot (Pistol): Your next shot can bounce off a surface to hit a target behind cover."
+                            }
+                        ]
+                    },
+                    "Sword Saint": {
+                        name: "Sword Saint",
+                        philosophy: "The perfect strike. The Sword Saint's art is one of lethal minimalism. They do not waste movement or energy. Every action is dedicated to creating the single, perfect opportunity to end the fight with one clean, decisive blow. They are masters of anticipation, timing, and killing intent.",
+                        abilities: [
+                            {
+                                name: "First Strike",
+                                description: "You have mastered the art of Iaijutsu—the single, lightning-fast draw and cut. You strike before your opponent has even registered the threat.",
+                                effect: "At the start of any combat where you have not yet acted, you can choose to perform a First Strike. This allows you to interrupt the initiative order and immediately take your turn. Your first attack on this turn gains a +1 bonus. After this action, you rejoin the normal initiative order."
+                            },
+                            {
+                                name: "Aetheric Strike",
+                                description: "You channel your Aether into your blade, not to imbue it with an element, but to guide it along the most perfect, efficient path to its target, bypassing clumsy defenses.",
+                                effect: "Once per scene, you can declare an Aetheric Strike. Your next melee attack ignores any defensive bonuses the target might have from cover or defensive stances (like a Shield Warden's Full Defense)."
+                            },
+                            {
+                                name: "Final Strike",
+                                description: "You see the fatal opening. When your opponent is staggered, off-balance, or otherwise vulnerable, you can deliver a precise finishing blow.",
+                                effect: "When you attack an enemy who is stunned, knocked prone, or otherwise significantly disadvantaged (GM's discretion), you can declare a Final Strike. If the attack hits, it is automatically considered a Critical Hit."
+                            }
+                        ]
+                    },
+                    "Gun Saint": {
+                        name: "Gun Saint",
+                        philosophy: "The bullet is not a projectile; it is an extension of my will. The Gun Saint has transcended marksmanship and entered the realm of ballistic artistry. They treat firearms with a quasi-religious reverence, capable of feats that defy physics and logic through a combination of Aetheric manipulation and impossible skill.",
+                        abilities: [
+                            {
+                                name: "Bend It",
+                                description: "You subtly manipulate the Aether around your bullet's trajectory, allowing it to curve around cover.",
+                                effect: "You can target an enemy who is behind partial cover (e.g., peeking around a corner, behind a crate). Your shot ignores the defensive bonus of that cover as the bullet curves in flight to find its mark."
+                            },
+                            {
+                                name: "Bounce It",
+                                description: "You have a supernatural understanding of angles and ricochet potential. You can intentionally fire a bullet at a surface to strike an enemy who is completely out of your line of sight.",
+                                effect: "You can make a ranged attack against a target who is behind total cover, provided there is a viable surface to ricochet your shot off of. This attack is made at a penalty, but it allows you to hit the \"unhittable.\""
+                            },
+                            {
+                                name: "Block It",
+                                description: "Your connection to your firearm is so absolute that you can perform the ultimate defensive feat: shooting a bullet out of the air.",
+                                effect: "Once per scene, as a reaction when you are targeted by a single ranged firearm attack, you can attempt to block it. Make an opposed attack roll against your attacker. If you succeed, you shoot their bullet out of the air, negating the attack completely in a spectacular display of skill."
+                            }
+                        ]
+                    }
+                }
             }
         }
     },
