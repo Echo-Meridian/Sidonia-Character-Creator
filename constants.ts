@@ -1251,7 +1251,56 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Passive): You can install, maintain, and repair any Tier 1 or Tier 2 Bio-Mods on any willing or helpless subject."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Bio-Painter": {
+                        name: "Bio-Painter",
+                        philosophy: "Life is art. The Bio-Painter has taken the Gene-Splicer's mastery to an aesthetic level. They can manipulate flesh with such precision that it becomes their canvas, creating new forms or enhancing existing ones with a focus on beauty and expression.",
+                        abilities: [
+                            {
+                                name: "Genetic Memory Maker",
+                                description: "You can sculpt and integrate new organs or tissues from raw Aether and genetic material, creating entirely new biological systems within a living being.",
+                                effect: "You can create and install a new minor organ (e.g., a secondary liver, an enhanced optic nerve) or a cosmetic alteration (e.g., iridescent skin, bioluminescent eyes) in a living being. This is a complex, time-consuming procedure."
+                            },
+                            {
+                                name: "Synergy Specialist",
+                                description: "Your understanding of biological systems is so profound that you can identify and enhance the natural interoperability of existing traits.",
+                                effect: "You can enhance the synergy between two existing biological features in a target (e.g., making their muscle strength work better with their bone density). This grants a bonus (e.g., +1) to relevant rolls."
+                            },
+                            {
+                                name: "Tier 3 Bio-Mods",
+                                description: "Your expertise extends to the most advanced and dangerous bioware.",
+                                effect: "(Passive): You can install, maintain, and repair any Tier 3 (Military Grade) Bio-Mods."
+                            }
+                        ]
+                    }
+                },
+                mutations: {
+                    "Waker": {
+                        name: "Waker",
+                        philosophy: "Potential is a key to be turned. The Waker has mutated beyond merely shaping existing life. Their Aetheric Cortex has attuned to the very frequency of potential itself. They can sense the \"Sparks\" of latent Espers in the populace, and more terrifyingly, they can force that potential into being. They are the creators of new Espers, a power that makes them one of the most valuable and hunted beings in Sidonia.",
+                        abilities: [
+                            {
+                                name: "Aetheric Masking",
+                                description: "You have learned to instinctively suppress your own Aetheric signature, cloaking your nature from other sensitives.",
+                                effect: "(Passive): As long as you are not actively using your Esper powers, you are undetectable as an Esper. You appear to all forms of magical and psychic detection as a normal, non-powered human."
+                            },
+                            {
+                                name: "Sense the Spark",
+                                description: "You can attune your senses to detect the subtle Aetheric hum of a latent or active Cortex in others.",
+                                effect: "You can automatically sense the presence of other Espers who are not using Aetheric Masking. Furthermore, you can make a Perception roll to detect a \"Spark\"—a non-powered individual with the latent potential to become an Esper."
+                            },
+                            {
+                                name: "Awaken the Spark",
+                                description: "This is the Waker's most coveted and feared ability. You can perform a difficult and dangerous ritual to forcibly activate a latent Esper's Cortex, pushing them through a traumatic, accelerated evolution into a full-fledged Esper.",
+                                results: {
+                                    "10+": "The awakening is clean. The target awakens to their new powers, gaining their chosen Archetype.",
+                                    "7-9": "The awakening is traumatic. The target awakens, but the psychic shock of the forced evolution inflicts 1 Permanent Corruption upon them.",
+                                    "6-": "The procedure fails catastrophically. The Spark's potential is burned out forever, rendering them unable to ever become an Esper, and the psychic backlash inflicts 2 Stun damage on both you and the target."
+                                }
+                            }
+                        ]
+                    }
+                }
             },
             "Green Thumb": {
                 name: "Green Thumb",
@@ -1273,7 +1322,46 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You can touch a diseased or damaged plant and restore it to health. This can be used to neutralize blights, cure infections, or even mend physical damage to ancient, important trees."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Green Smith": {
+                        name: "Green Smith",
+                        philosophy: "Nature can be improved. The Green Smith is a master horticulturalist, a biological architect who doesn't just grow plants but actively designs them for greater utility, yield, and resilience.",
+                        abilities: [
+                            {
+                                name: "Enhance Yield",
+                                description: "You can touch a fruiting or flowering plant and cause it to produce a massive, bumper crop, far exceeding its natural output."
+                            },
+                            {
+                                name: "Reinforce Harvest",
+                                description: "You can imbue a plant with unnatural durability. You can make wood as hard as steel, fibers as strong as cable, or bark as tough as armor plating."
+                            },
+                            {
+                                name: "Tier 1 Plant Mods",
+                                description: "You can perform a form of plant \"gene-splicing,\" taking a single, simple trait from one plant (like the thorns of a rose or the vibrant color of a tulip) and grafting it onto another."
+                            }
+                        ]
+                    }
+                },
+                mutations: {
+                    "Blight Smith": {
+                        name: "Blight Smith",
+                        philosophy: "Survival at any cost. The Blight Smith has been exposed to and warped by the corrupting influence of the Blight. Instead of fighting it, they have embraced it, becoming a master of the twisted, toxic life that thrives in those poisoned lands. They are a corrupted echo of the Green Thumb's art.",
+                        abilities: [
+                            {
+                                name: "Blight Resistance",
+                                description: "Your own body has adapted. You are highly resistant to the toxic and corrupting effects of the Blight."
+                            },
+                            {
+                                name: "Blight Mutations",
+                                description: "You can take a normal plant and infuse it with the Blight's corrupting energy, forcing grotesque but useful mutations: pitcher plants that drip acid, vines that constrict with unnatural strength, or flowers that release hallucinogenic pollen."
+                            },
+                            {
+                                name: "Virulent Blight",
+                                description: "You can enhance the growth and spread of existing Blighted flora, causing it to rapidly overgrow an area, turning a safe zone into a toxic, alien landscape loyal to you."
+                            }
+                        ]
+                    }
+                }
             },
             "Beast Doctor": {
                 name: "Beast Doctor",
@@ -1295,7 +1383,29 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "This functions identically to your Heal Chimera ability, reinforcing your role as a master of non-human biology."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Researcher": {
+                        name: "Researcher",
+                        philosophy: "To understand is to protect. The Researcher has taken their love of animals and turned it into a scientific pursuit. They are dedicated to observing, cataloging, and understanding the strange and often dangerous fauna of Sidonia without interfering. They are the Jane Goodalls of a world filled with monsters.",
+                        abilities: [
+                             {
+                                name: "Zoology Mastery",
+                                description: "You possess an encyclopedic, intuitive knowledge of the animal kingdom, from the most mundane pests to the most bizarre Blight-mutated predators.",
+                                effect: "(Passive): You are considered to have an Expert (+1) skill rank in Science (Zoology). You can identify any creature, understand its likely behaviors, and know its strengths and weaknesses."
+                            },
+                            {
+                                name: "Short-Range Bioscan",
+                                description: "You have learned to perform your Bioscan from a short distance, allowing you to gather data without needing to risk physical contact with a dangerous creature.",
+                                effect: "You can now use your Bioscan Move on any target within 15 feet of you."
+                            },
+                            {
+                                name: "Aetheric Stealth",
+                                description: "You can instinctively dampen your Aetheric signature and muffle your physical presence when observing wildlife.",
+                                effect: "(Passive): When you are solely observing and not interacting, animals and non-sentient creatures are completely unaware of your presence. You have a massive advantage on any stealth rolls made to avoid detection by animals."
+                            }
+                        ]
+                    }
+                }
             }
         }
     },
@@ -1524,7 +1634,7 @@ export const ESPER_DATA: Record<string, any> = {
                         philosophy: "This world is for the living. The Exorcist sees rogue spirits and Wraiths not as beings to be negotiated with, but as infections to be contained and purged.",
                         abilities: [
                             { name: "Restrict", description: "You can create a temporary \"fence\" of Aether in an area that a specific spirit or type of spirit cannot cross.", effect: "" },
-                            { name: "Banish", description: "You can perform a ritual to sever a spirit's anchor to the physical world, forcefully ejecting it back into the deep Aether.", effect: "" },
+                            { name: "Banish", description: "You can perform a ritual to sever a spirit's anchor to the physical world, forcefully ejecting it back into the Aether.", effect: "" },
                             { name: "Extort", description: "You can use the threat of a Banish or Restrict to force a spirit into an unfavorable Spirit Pact.", effect: "" }
                         ]
                     }
