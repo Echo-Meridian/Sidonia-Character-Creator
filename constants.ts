@@ -1459,7 +1459,35 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Passive): When you use Animate the Inanimate, you can now give your construct a conditional command (e.g., 'If someone opens that door, then attack them.' 'If I say the word 'danger,' then create a distraction.')."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Operator": {
+                        name: "Operator",
+                        philosophy: "The Ghost in the Machine. The Operator moves beyond simple commands to form a direct, one-to-one interface with their creations. They do not just command their constructs; they become them, piloting them with the precision of their own bodies.",
+                        abilities: [
+                            { name: "Remote Pilot", description: "You project your consciousness into one of your active animated constructs, seeing through its \"eyes\" and controlling its every move directly.", effect: "While piloting a construct, you perceive everything it senses. You can control it with perfect precision, using your own skills for its actions. Your physical body remains behind, unconscious and vulnerable. You can maintain this link up to a significant distance (e.g., across a city block)." },
+                            { name: "Overclock Construct", description: "You flood your construct with an overwhelming amount of your own mental energy, pushing its physical form past its design limits for a short burst of incredible performance.", effect: "You can choose to Overclock one of your constructs. For the next minute, it gains a significant bonus to its actions (+1 to all rolls, increased speed and strength). However, the strain damages its physical form. At the end of the effect, the construct suffers significant, lasting damage that will require repairs." },
+                            { name: "Engineering Mastery", description: "Through your work with constructs, you have gained an intuitive, profound understanding of mechanics and engineering.", effect: "(Passive): You are considered to have an Expert (+1) skill rank in Engineering. If you already had the skill, its rank increases by one tier. This allows you to repair and modify not just your own constructs, but other technology as well." }
+                        ]
+                    },
+                    "Dollmaker": {
+                        name: "Dollmaker",
+                        philosophy: "The Legion of One. The Dollmaker has moved beyond single constructs to command a small army of puppets. Their power is not in the strength of one servant, but in the coordinated action of many. They are a master conductor, and their puppets are the orchestra.",
+                        abilities: [
+                            { name: "Master of Puppets", description: "You can split your consciousness, animating and directing a number of simple constructs simultaneously. Each puppet acts as a node, sharing the processing load and allowing for complex, coordinated action.", effect: "You can now use Animate the Inanimate on a number of simple constructs (mannequins, skeletons, etc.) up to your Presence attribute at the same time. You can give them all the same simple, conditional command as a single action." },
+                            { name: "Puppet Networking", description: "Your puppets are not just individuals; they are a network. They share a low-level awareness, allowing them to communicate sensor data and react to each other's status without your direct input.", effect: "(Passive): Your horde of puppets acts with uncanny coordination. They can flank enemies, relay information to each other (e.g., \"enemy spotted in the west wing\"), and work together on complex physical tasks (like carrying a heavy object)." },
+                            { name: "Purposeful Puppetry", description: "You have learned to shape your constructs for specific roles. During Downtime, you can modify your inanimate puppets to better suit a task.", effect: "(Passive): You can modify your puppets. A \"bearer\" puppet might be reinforced to carry heavy loads. A \"hitter\" puppet might have its hands replaced with weighted clubs. A \"distraction\" puppet might be filled with noisy junk. This allows you to customize your horde for the mission at hand." }
+                        ]
+                    },
+                    "Corpse Lord": {
+                        name: "Corpse Lord",
+                        philosophy: "Flesh is the Ultimate Puppet. The Corpse Lord has turned their art of animation from inorganic matter to the far more pliable medium of the dead. They are not necromancers dealing with souls, but macabre puppeteers who see bodies as nothing more than marionettes waiting for a string.",
+                        abilities: [
+                            { name: "Fuel for the Horde", description: "Your Spirit Sense is now attuned to the specific resonance of death. You can feel the presence of corpses nearby.", effect: "You can automatically sense the location and number of any intact dead bodies within a significant radius." },
+                            { name: "Animate the Horde", description: "An evolution of Master of Puppets, this allows you to raise and command a large number of undead servants at once.", effect: "You can animate a large number of corpses, creating a horde of shambling, witless undead who will follow your simple commands." },
+                            { name: "Master the Horde", description: "You have absolute control over your undead legion.", effect: "(Passive): Your horde acts as a single, coordinated entity. You can give them complex conditional commands, and they will execute them with mindless, relentless efficiency." }
+                        ]
+                    }
+                }
             },
             "Medium": {
                 name: "Medium",
@@ -1481,7 +1509,26 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "You can allow a spirit to inhabit your body for a scene. While channeling, the spirit can speak using your voice and see through your eyes. This is often used as a service to allow others to speak with a specific spirit. You remain in control, but the spirit's presence can be mentally taxing."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Champion": {
+                        name: "Champion",
+                        philosophy: "Partnership is power. The Champion has chosen to align themselves with the spirits, acting as their agent, ally, and anchor in the physical world.",
+                        abilities: [
+                            { name: "Spirit Bond", description: "You forge a permanent, symbiotic bond with a single, specific spirit, who becomes your patron.", effect: "" },
+                            { name: "Spirit Boon", description: "Your patron spirit grants you a permanent passive benefit related to its nature (e.g., a fire spirit might grant you resistance to heat; a spirit of knowledge might give you a bonus to Lore rolls). This is defined with the GM.", effect: "" },
+                            { name: "Spirit Host", description: "You can allow your patron spirit to partially merge with you for a scene, granting you access to one of its minor powers or skills.", effect: "" }
+                        ]
+                    },
+                    "Exorcist": {
+                        name: "Exorcist",
+                        philosophy: "This world is for the living. The Exorcist sees rogue spirits and Wraiths not as beings to be negotiated with, but as infections to be contained and purged.",
+                        abilities: [
+                            { name: "Restrict", description: "You can create a temporary \"fence\" of Aether in an area that a specific spirit or type of spirit cannot cross.", effect: "" },
+                            { name: "Banish", description: "You can perform a ritual to sever a spirit's anchor to the physical world, forcefully ejecting it back into the deep Aether.", effect: "" },
+                            { name: "Extort", description: "You can use the threat of a Banish or Restrict to force a spirit into an unfavorable Spirit Pact.", effect: "" }
+                        ]
+                    }
+                }
             },
             "Automata Focus": {
                 name: "Automata Focus",
@@ -1503,7 +1550,26 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "(Passive): You can successfully create vessels for and forge pacts with spirits of a low power tier."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Contractor": {
+                        name: "Contractor",
+                        philosophy: "The deal is the art. The Contractor is a master of supernatural law. They understand that the greatest power lies not in binding a spirit to a vessel for themselves, but in facilitating the binding agreements between spirits and mortals. They are sought-after arcane notaries, their trade being trust, knowledge, and the unshakeable power of a contract enforced by the timeless logic of the Aether.",
+                        abilities: [
+                            { name: "Index Arcanum", description: "You maintain a \"mental Rolodex\" of spirits you have knowledge of, categorized by their nature, domain, and the services they are likely to provide.", effect: "(Passive): You have a mental list of spirits you can potentially contact. When a client needs a specific service (enforcement, information, protection), you can make a Lore roll to know which spirit in your Index would be the best fit for the job." },
+                            { name: "Aetheric Contract", description: "You are the architect of the magical agreement. You know the precise language, symbols, and Aetheric structures needed to create a contract that is intelligible and binding to both a mortal and a spirit.", effect: "You can draft an Aetheric Contract. This is a physical or psychic document that, once agreed upon by two or more parties (at least one of which must be a spirit), is magically absolute. You have perfect recall of every contract you have ever drafted." },
+                            { name: "Soul Brand", description: "As part of the contract, you can weave a minor sympathetic link between the signing parties. This is a spiritual \"handshake\" that creates a conduit for communication or fulfillment.", effect: "You can add a \"Soul Brand\" clause to your Aetheric Contract. This creates a one-way or two-way connection between the signatories, allowing them to feel each other's general emotional state, send a simple one-word message, or know when the other has fulfilled (or broken) their part of the bargain." }
+                        ]
+                    },
+                    "Facilitator": {
+                        name: "Facilitator",
+                        philosophy: "The broker of worlds. The Facilitator has built a reputation in the Aether. They are known as a reliable and effective bridge to the physical world, and spirits actively seek them out for the opportunity. Their power comes from their influence and the quality of the bargains they can strike.",
+                        abilities: [
+                            { name: "Spirit Favor", description: "Your reputation precedes you. You are known as a master vessel-crafter and an honest broker, and spirits are inherently more disposed to deal with you favorably.", effect: "(Passive): You gain a permanent bonus to all Social rolls made when negotiating a Spirit Pact. It is very difficult to lose this favor unless you are caught repeatedly breaking the spirit of your agreements." },
+                            { name: "Spirit Domain", description: "You can temporarily attune an area's Aetheric resonance to match that of a specific spirit you are trying to summon or bargain with.", effect: "By spending a few minutes in concentration, you can create a temporary \"domain\" that is highly receptive to a specific spirit or type of spirit. While within this area, any attempt to summon, negotiate with, or command that spirit gains a significant advantage. The domain dissipates at the end of the scene." },
+                            { name: "Spirit Vessel II", description: "Your skill has grown immensely. You can now prepare vessels of exquisite quality, capable of containing more powerful and influential spirits.", effect: "(Passive): You can now create vessels for and forge pacts with spirits of a medium power tier." }
+                        ]
+                    }
+                }
             },
             "Psychomata": {
                 name: "Psychomata",
@@ -1525,7 +1591,28 @@ export const ESPER_DATA: Record<string, any> = {
                         effect: "As an action, you can give a single, one-word command (e.g., 'Attack,' 'Flee,' 'Protect') to all of your active Psychomata. They will obey this command for one round before reverting to their instinctual behavior."
                     }
                 ],
-                focuses: {}
+                focuses: {
+                    "Mythos": {
+                        name: "Mythos",
+                        philosophy: "I will write my own story. The summoner has begun to structure their inner world, transforming chaotic dreams into a coherent, personal mythology. They are building their own pantheon, their own legend.",
+                        abilities: [
+                            { name: "The Myth of I", description: "You work with your GM to define the core \"Mythos\" of your summons (e.g., The Carnival of Souls, The Clockwork Legion, The Ashen Court). This defines the aesthetic and hierarchy of all your future summons.", effect: "(Passive): Your summons now have a consistent, defined form based on your Mythos. They are no longer amorphous." },
+                            { name: "When in Need", description: "You can reach into your personal Mythos and pull out a more specialized entity suited for the current situation.", effect: "When you summon your Lucid Legion, you can choose to summon one specific, more powerful \"officer\" from your Mythos instead of a group of lesser ones. This officer will have a unique ability related to its role in your personal story." },
+                            { name: "Mass Summons", description: "You can fully open the gates to your inner world, letting your Mythos spill into reality.", effect: "You can summon a large horde of your lesser Mythos creatures at once, creating a chaotic but impressive fighting force." }
+                        ]
+                    }
+                },
+                mutations: {
+                     "Pathos": {
+                        name: "Pathos",
+                        philosophy: "The nightmare is real. The summoner has embraced the darkest corners of their mind. Their summons are no longer just emotions; they are anxieties, traumas, and predatory urges made manifest.",
+                        abilities: [
+                            { name: "The Waking Nightmare", description: "Your Waking Dream effect is now permanently twisted. The world around you becomes a terrifying tableau of your inner horrors. You gain an advantage on all Intimidation rolls.", effect: "" },
+                            { name: "The Devouring Dream", description: "Your nightmares feed on the fear they create. When an enemy is successfully frightened by your summons or your aura, your summons' duration in the physical world is extended.", effect: "" },
+                            { name: "The Devil's Bargain", description: "You have no real control, only leverage. You can make a pact with your nightmares, offering them a chance to indulge their dark appetites in exchange for a specific service. This is a dangerous, contested negotiation.", effect: "" }
+                        ]
+                    }
+                }
             }
         }
     },
