@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useMemo } from 'react';
 // FIX: Import Skill type to resolve property access errors on 'unknown' type.
 import { Character, Category, Priority, Priorities, SkillName, Skills, AttributeName, Attributes, AttributeSpecialization, Skill, SorcerySphere, ChimeraMutation, NeoSapienAugment } from './types';
@@ -343,14 +344,14 @@ const App: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-900 text-gray-200 p-4 sm:p-8 flex flex-col items-center">
+        <div className="min-h-screen p-4 sm:p-8 flex flex-col items-center">
             <div className="w-full max-w-5xl">
                 <header className="text-center mb-6">
-                    <h1 className="text-4xl sm:text-5xl font-bold text-amber-400">SIDONIA</h1>
-                    <p className="text-slate-400 text-lg">Character Creator</p>
+                    <h1 className="text-4xl sm:text-5xl font-bold text-amber-400" style={{ textShadow: '0 0 10px rgba(0,0,0,0.7)' }}>SIDONIA</h1>
+                    <p className="text-slate-300 text-lg" style={{ textShadow: '0 0 5px rgba(0,0,0,0.7)' }}>Character Creator</p>
                 </header>
 
-                <main className="bg-slate-800/50 p-6 rounded-lg shadow-2xl shadow-slate-950/50 border border-slate-700">
+                <main className="bg-slate-900/80 backdrop-blur-sm p-6 rounded-lg shadow-2xl shadow-black/60 border border-slate-700">
                     <StepIndicator currentStep={currentStep} steps={steps} />
                     <div className="my-6 text-center text-slate-300">
                         <p>{STEP_DESCRIPTIONS[currentStep]}</p>

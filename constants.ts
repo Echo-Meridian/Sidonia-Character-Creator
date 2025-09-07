@@ -50,9 +50,9 @@ export const LINEAGE_OPTIONS = {
     },
     "Sorcerer": {
         description: "Physicists of reality's deepest laws, reshaping the world through grueling study and intellectual discipline.",
-        [Priority.A]: "1 Primary Sphere, 2 Secondary. 3 Moves total.",
-        [Priority.B]: "1 Primary Sphere, 1 Secondary. 2 Moves total.",
-        [Priority.C]: "1 Primary Sphere OR 2 Secondary. 2 Moves total.",
+        [Priority.A]: "1 Primary Sphere, 2 Secondary. 5 Moves total.",
+        [Priority.B]: "1 Primary Sphere, 1 Secondary. 4 Moves total.",
+        [Priority.C]: "1 Primary Sphere OR 2 Secondary. 3 Moves total.",
         [Priority.D]: "1 Secondary Sphere. 2 Moves from within it.",
         [Priority.E]: "1 Secondary Sphere. 1 Move.",
     },
@@ -221,11 +221,11 @@ export const HEALTH_BOX_TABLE: Record<number, { head: number, torso: number, arm
 };
 
 export const SORCERER_PRIORITY_DATA = {
-    [Priority.A]: { primary: 1, secondary: 2, moves: 3 },
-    [Priority.B]: { primary: 1, secondary: 1, moves: 2 },
+    [Priority.A]: { primary: 1, secondary: 2, moves: 5 },
+    [Priority.B]: { primary: 1, secondary: 1, moves: 4 },
     [Priority.C]: { 
-        path1: { primary: 1, secondary: 0, moves: 2 },
-        path2: { primary: 0, secondary: 2, moves: 2 } 
+        path1: { primary: 1, secondary: 0, moves: 3 },
+        path2: { primary: 0, secondary: 2, moves: 3 } 
     },
     [Priority.D]: { primary: 0, secondary: 1, moves: 2 },
     [Priority.E]: { primary: 0, secondary: 1, moves: 1 },
@@ -468,6 +468,38 @@ export const CHIMERA_DATA = {
                 { tier: 1, name: "Bounding Gait", description: "You are built for bursts of speed, with a long, loping stride.", effect: "Your base running speed is increased by 50%.", flaw: "You are built for straight-line speed, not agility. You suffer a penalty on any rolls made to swerve, dodge, or make tight turns while running at your top speed.", cost: 1, corruption: 1 },
                 { tier: 2, name: "Endurance Engine", description: "Your cardiovascular and respiratory systems are marvels of biological engineering.", effect: "You can run at your top speed for an entire scene without needing to make Athletics or Stamina rolls to resist exhaustion.", cost: 2, corruption: 2 },
                 { tier: 3, name: "Blur of Motion", description: "Your speed is no longer purely physical; it is a flicker of motion that seems to defy the normal flow of time.", effect: "Once per scene, you can push your body into a state of supernatural celerity. On your turn, you may take one additional action, which can only be used to Move.", cost: 3, corruption: 3 }
+            ]
+        },
+        {
+            name: "Aetheric Absorption",
+            tiers: [
+                { tier: 1, name: "Endurance Draw", description: "Your body has developed primitive ether-filtering organs, similar to those found in certain Blight creatures. You can draw upon ambient Aether to supplement your cellular energy production, though the process is crude and taxing.", effect: "Once per scene, you can activate this ability to ignore one level of exhaustion or fatigue for the remainder of the scene. You can push through when others would collapse.", flaw: "The unrefined filtering process causes visible strain. When you use this ability, your veins glow faintly with Aetheric energy, clearly marking you as something other than human.", cost: 2, corruption: 2 },
+                { tier: 2, name: "Regenerative Filtering", description: "Your ether cortex has developed more sophisticated filtration, allowing you to convert Aetheric energy directly into cellular repair mechanisms. The process knits wounds and accelerates healing at an observable rate.", effect: "You gain accelerated healing. Minor wounds close within minutes, moderate wounds within hours. Once per scene, you can surge this ability to immediately heal 1 point of Wound damage.", cost: 2, corruption: 2 },
+                { tier: 3, name: "Aetheric Surge", description: "Your body has achieved perfect symbiosis with Aetheric energy. You can flood your muscles with pure power, achieving brief moments of superhuman strength at will.", effect: "When you succeed on a Strength-based roll, you can choose to surge your power. Your Tier of Effect increases by two levels instead of one. Additionally, once per scene, you can perform a feat of strength that would normally be impossible for your build.", cost: 3, corruption: 3 }
+            ]
+        },
+        {
+            name: "Aetheric Markings",
+            tiers: [
+                { tier: 1, name: "Hostile Intent", description: "Faint, tattoo-like markings trace your skin, pulsing with barely perceptible light. They resonate with aggressive Aetheric signatures, giving you precious moments of warning before violence erupts.", effect: "You can sense hostile intent directed at you within 30 feet. You cannot be surprised by attacks from beings with conscious intent.", flaw: "The markings pulse visibly when detecting hostility, potentially revealing your awareness to observant enemies and marking you as obviously inhuman.", cost: 2, corruption: 2 },
+                { tier: 2, name: "Omnisphere", description: "Your markings have spread into complex geometric patterns that create a complete sensory web around you. By closing your eyes and reading the Aether, you perceive your surroundings with perfect clarity.", effect: "You gain 360-degree blindsight within 20 feet. This functions even in complete darkness or when blinded. You suffer no penalties for fighting in darkness within this range.", cost: 2, corruption: 2 },
+                { tier: 3, name: "Spirit Sight", description: "Your markings have evolved into intricate mandala patterns that shimmer between dimensions. You perceive not just the physical world, but the Aetheric layer beneath, revealing spirits, emotional resonances, and hidden truths.", effect: "You can sense all Aetheric activity within 60 feet, including spirits, wraiths (even when not manifested), active Esper abilities, and the emotional “charge” of locations. You can track recent Aetheric activity like following psychic footprints.", cost: 3, corruption: 3 }
+            ]
+        },
+        {
+            name: "Aetheric Authority",
+            tiers: [
+                { tier: 1, name: "Beastial Visage", description: "When you tap into your ether cortex, your features shift subtly but profoundly. Your presence becomes something primal and commanding, triggering deep evolutionary fear responses in observers.", effect: "You gain a significant bonus to Intimidation rolls. When you consciously project your authority, weak-willed individuals must make a Willpower check or instinctively back away.", flaw: "You cannot fully control when this manifests. In moments of strong emotion, your visage shifts unbidden, potentially ruining social situations or revealing your nature.", cost: 2, corruption: 2 },
+                { tier: 2, name: "Domain", description: "Your ether cortex can project a calming field that pacifies chaotic Aetheric energy. You become an eye of tranquility in the storm of the Blight.", effect: "You can suppress Aetheric instability in a 10-foot radius around you. This reduces the effects of Blight exposure for allies, calms aggressive spirits, and can even temporarily stabilize an Esper experiencing power overflow.", cost: 2, corruption: 2 },
+                { tier: 3, name: "Linker Node", description: "Your ether cortex has evolved into something unprecedented - a biological networking hub that can interface with both Esper organs and Automata processing cores, creating temporary gestalt connections.", effect: "You can establish mental links with willing Espers and Automata within 30 feet. Linked individuals can share surface thoughts, coordinate perfectly in combat (granting tactical advantages), and pool certain mental resources. You can maintain links equal to your Intellect score.", cost: 3, corruption: 3 }
+            ]
+        },
+        {
+            name: "Spore Production",
+            tiers: [
+                { tier: 1, name: "Choking Cloud", description: "Specialized glands in your throat or skin can release a cloud of irritant spores, similar to military-grade pepper spray but of biological origin.", effect: "Once per scene, you can release a spore cloud in a 10-foot radius. Those caught within must make a Stamina check or be incapacitated by coughing and tearing for one round.", flaw: "You’re not immune to your own spores. A strong wind or poor positioning can affect you as badly as your enemies.", cost: 2, corruption: 2 },
+                { tier: 2, name: "Bleeding Spores", description: "Your spores contain powerful anticoagulant compounds. They seep through skin and mucous membranes, preventing blood from clotting properly.", effect: "Your spore clouds now cause bleeding in addition to irritation. Those who fail their Stamina check take 1 Wound damage that continues to bleed (1 additional damage per scene) until properly treated.", cost: 2, corruption: 2 },
+                { tier: 3, name: "Sensory Spores", description: "You’ve achieved conscious control over your spore production, creating clouds that act as extensions of your nervous system. Each spore is a tiny sensory node, feeding information back to your enhanced neural architecture.", effect: "You can direct spore clouds up to 100 feet away, sending them through vents, under doors, or around corners. You can see, hear, and smell through the cloud as if you were present. The cloud persists for one scene and can be moved at walking speed.", cost: 3, corruption: 3 }
             ]
         }
     ],
@@ -1213,7 +1245,7 @@ export const ESPER_DATA: Record<string, any> = {
     },
     "Median": {
         name: "Median",
-        philosophy: "Life flows through me. I am a conduit for healing, a mender of flesh and spirit.",
+        philosophy: "The Median is a living conduit of biological Aether. Their power resonates with the patterns of life itself, allowing them to sense, influence, and mend the intricate biological processes of living beings. They are the doctors, the healers, and, at their most extreme, the architects of flesh.",
         abilities: [
             {
                 name: "Bioscan",
@@ -1790,7 +1822,7 @@ export const ESPER_DATA: Record<string, any> = {
                     },
                     "Corpse Lord": {
                         name: "Corpse Lord",
-                        philosophy: "Flesh is the Ultimate Puppet. The Corpse Lord has turned their art of animation from inorganic matter to the far more pliable medium of the dead. They are not necromancers dealing with souls, but macabre puppeteers who see bodies as nothing more than marionettes waiting for a string.",
+                        philosophy: "Flesh is the Ultimate Puppet. The Corpse Lord has turned their art of animation from inorganic matter to the far more pliable medium of the dead. They are not necromancers dealing with souls, but macabre puppeteers who see bodies as nothing more than an marionettes waiting for a string.",
                         abilities: [
                             { name: "Fuel for the Horde", description: "Your Spirit Sense is now attuned to the specific resonance of death. You can feel the presence of corpses nearby.", effect: "You can automatically sense the location and number of any intact dead bodies within a significant radius." },
                             { name: "Animate the Horde", description: "An evolution of Master of Puppets, this allows you to raise and command a large number of undead servants at once.", effect: "You can animate a large number of corpses, creating a horde of shambling, witless undead who will follow your simple commands." },
