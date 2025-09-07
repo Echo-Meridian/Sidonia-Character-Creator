@@ -19,5 +19,5 @@ View your app in AI Studio: https://ai.studio/apps/drive/1fl240GSAvRD77ywyUrwqPf
 3. Run the app:
    `npm run dev`
 
-
-    Sidonia  © 2025 by Echo_One is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+**Echo_One**
+Sidonia  © 2025 by Echo_One is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
