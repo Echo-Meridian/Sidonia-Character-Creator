@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useMemo } from 'react';
 // FIX: Import Skill type to resolve property access errors on 'unknown' type.
 import { Character, Category, Priority, Priorities, SkillName, Skills, AttributeName, Attributes, AttributeSpecialization, Skill, SorcerySphere, ChimeraMutation, NeoSapienAugment } from './types';
@@ -351,7 +350,7 @@ const App: React.FC = () => {
                     <p className="text-slate-300 text-lg" style={{ textShadow: '0 0 5px rgba(0,0,0,0.7)' }}>Character Creator</p>
                 </header>
 
-                <main className="bg-slate-900/80 backdrop-blur-sm p-6 rounded-lg shadow-2xl shadow-black/60 border border-slate-700">
+                <main className="bg-slate-800 p-6 rounded-lg shadow-xl border border-slate-700">
                     <StepIndicator currentStep={currentStep} steps={steps} />
                     <div className="my-6 text-center text-slate-300">
                         <p>{STEP_DESCRIPTIONS[currentStep]}</p>
@@ -388,6 +387,10 @@ const App: React.FC = () => {
                          )}
                     </div>
                 </main>
+                <footer className="text-center mt-8 text-xs text-slate-400">
+                  <p>Sidonia © 2025 by Echo_One is licensed under CC BY-NC-SA 4.0.</p>
+                  <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">https://creativecommons.org/licenses/by-nc-sa/4.0/</a></p>
+                </footer>
             </div>
         </div>
     );
